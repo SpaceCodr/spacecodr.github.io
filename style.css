@@ -4,3 +4,6 @@
 .homeicon:hover {
     color:black;
 }
+.cardhover:hover{
+    border-color: black;
+}
