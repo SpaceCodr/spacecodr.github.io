@@ -7,3 +7,18 @@
 .cardhover:hover{
     border-color: black;
 }
+
+@keyframes home_bkcolor {
+    0% {background-color: rgb(230, 120, 101);}
+    20% {background-color: yellowgreen;}
+    40% {background-color: cadetblue;}
+    80% {background-color: burlywood;}
+    100% {background-color: steelblue;}
+}
+#home {
+    animation-name: home_bkcolor;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: backwards;
+}
