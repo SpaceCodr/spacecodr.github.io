@@ -29,285 +29,248 @@
       content="I am Umer Bin Shah, a 2023 graduate of TKM College of Engineering (KTU) in Kollam, Kerala, India with a Bachelor of Technology degree in Computer Science and Engineering. I am passionate about software engineering and development, and I am dedicated to continuous learning."
     />
     <title>Umer Bin Shah</title>
+    <!-- "Start with curiosity, build with passion, and always leave room for play." -->
+    <!-- Custom fishing rod cursor applied via CSS -->
   </head>
 
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+    <div class="scroll-progress-container">
+      <div class="scroll-progress-bar"></div>
+    </div>
+
     <script src="script/script.js"></script>
     <div id="root">
-      <!-- Navigation -->
-      <nav
-        class="px-3 navbar fixed-top navbar-transparent navbar-expand-lg navbar-light"
-      >
-        <a href="#home" class="navbar-brand">&lt;Umer/&gt;</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav mr-auto justify-content-center">
-            <a href="#projects" class="nav-link"
-              ><span class="nav-item lead">Projects</span></a
-            >
-            <a
-              href="https://docs.google.com/document/d/1s7RdswN2A4h3vFZFqWQZzMfqo0xxo-cQUeR0fZ8hBbI/edit?usp=sharing"
-              target="_blank"
-              class="nav-link"
-              ><span class="nav-item lead">Resume</span></a
-            >
-            <a href="#aboutme" class="nav-link"
-              ><span class="nav-item lead">About</span></a
-            >
-            <a href="#contact" class="nav-link"
-              ><span class="nav-item lead">Contact</span></a
-            >
+      <!-- Scroll Progress Bar -->
+      <div id="scroll-progress" style="position:fixed;top:0;left:0;width:0;height:4px;background:#007bff;z-index:2000;transition:width 0.2s;"></div>
+      <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="#home">Umer Bin Shah</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="https://github.com/SpaceCodr" target="_blank"><i class="fab fa-github"></i></a></li>
+              <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/umerbinshah/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
           </div>
         </div>
-      </nav>
-      <!-- Home -->
-      <div
-        id="home"
-        class="py-3 text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
-        style="background: tomato"
-      >
-        <div class="container py-5">
-          <div class="text-center container">
-            <h1 class="display-1">Umer Bin Shah</h1>
-            <div class="lead">
-              Passionate Problem Solver and Innovative Thinker
+      </header>
+      <main class="pt-5" style="background: #f8fafc;">
+        <!-- Hero -->
+        <section id="home" class="d-flex align-items-center min-vh-100 bg-light">
+          <div class="container text-center">
+            <h1 class="display-2 fw-bold mb-3">Umer Bin Shah</h1>
+            <p class="lead mb-4">Software Engineer | Salesforce Developer | MuleSoft Developer</p>
+            <div class="mb-4">
+              <a href="https://github.com/SpaceCodr" target="_blank" class="btn btn-dark me-2"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.linkedin.com/in/umerbinshah/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
-            <div class="p-5">
-              <a
-                href="https://github.com/SpaceCodr"
-                target="_blank"
-                aria-label="My GitHub"
-                ><i class="fa-github fa-3x fab homeicon px-3"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/umerbinshah/"
-                target="_blank"
-                aria-label="My LinkedIn"
-                ><i class="fab fa-linkedin fa-3x homeicon px-3"></i
-              ></a>
-            </div>
-            <a
-              href="#aboutme"
-              class="btn btn-outline-light btn-lg"
-              role="button"
-              aria-label="About Me"
-              >Enter</a
-            >
+            <a href="#about" class="btn btn-outline-secondary btn-lg">Learn More</a>
           </div>
-        </div>
-      </div>
-      <!-- About Me -->
-      <div id="aboutme" class="py-3 m-0" style="background-color: aliceblue">
-        <div class="container py-5">
-          <h2 class="display-4 mb-5 text-center">About Me</h2>
-          <p class="lead text-center">
-            I am Umer Bin Shah, a 2023 graduate of TKM College of Engineering
-            (KTU) in Kollam, Kerala, India with a Bachelor of Technology degree
-            in Computer Science and Engineering. I am passionate about software
-            engineering and development, and I am dedicated to continuous
-            learning. <br />
-            <br />
-            I'm familiar with Python, C, HTML/CSS, Flutter, Flask, JavaScript,
-            SQL, Hive, Git and GitHub. Further, I'm keen towards other
-            technologies.
-          </p>
-          <p class="lead text-center">
-            <a
-              href="https://docs.google.com/document/d/1s7RdswN2A4h3vFZFqWQZzMfqo0xxo-cQUeR0fZ8hBbI/edit?usp=sharing"
-              class="btn btn-outline-dark btn-lg"
-              target="_blank"
-              role="button"
-              aria-label="Resume/CV"
-              >Resume</a
-            >
-          </p>
-        </div>
-      </div>
-      <!-- Projects -->
-      <div id="projects" class="py-3">
-        <div class="container py-5">
+        </section>
+        <!-- About -->
+        <section id="about" class="py-5">
+          <div class="container wide-section">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="card shadow-sm p-4 border-0 wide-card">
+                  <div class="card-body text-center">
+                    <h2 class="card-title mb-3">About Me</h2>
+                    <p class="card-text lead">I am Umer Bin Shah, a Software Engineer specializing in building practical, end-to-end solutions that automate tasks, integrate APIs, and enhance user experience. I am passionate about software engineering and development, and I am dedicated to continuous learning.</p>
+                    <div class="mb-3">
+                      <span class="badge bg-secondary mx-1">Python</span>
+                      <span class="badge bg-secondary mx-1">C</span>
+                      <span class="badge bg-secondary mx-1">HTML/CSS</span>
+                      <span class="badge bg-secondary mx-1">Flutter</span>
+                      <span class="badge bg-secondary mx-1">Flask</span>
+                      <span class="badge bg-secondary mx-1">JavaScript</span>
+                      <span class="badge bg-secondary mx-1">SQL</span>
+                      <span class="badge bg-secondary mx-1">Hive</span>
+                      <span class="badge bg-secondary mx-1">Git</span>
+                      <span class="badge bg-secondary mx-1">Salesforce</span>
+                      <span class="badge bg-secondary mx-1">Apex</span>
+                      <span class="badge bg-secondary mx-1">LWC</span>
+                      <span class="badge bg-secondary mx-1">SOQL</span>
+                      <span class="badge bg-secondary mx-1">MuleSoft</span>
+                      <span class="badge bg-secondary mx-1">Agentforce</span>
+                    </div>
+                    <a href="https://docs.google.com/document/d/1s7RdswN2A4h3vFZFqWQZzMfqo0xxo-cQUeR0fZ8hBbI/edit?usp=sharing" class="btn btn-outline-dark" target="_blank">Download Resume</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Experience -->
+        <section id="experience" class="py-5">
+          <div class="container timeline-container">
+            <h2 class="card-title mb-5 text-center">Experience</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <img src="assets/tryzens_logo.png" alt="Tryzens Global" style="width:48px;height:48px;object-fit:contain;border-radius:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;"/>
+                </div>
+                <div class="timeline-content card shadow-sm border-0 p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0">Associate Software Developer</h5>
+                    <span class="text-muted small">Oct 2023 - Current</span>
+                  </div>
+                  <div class="mb-1 text-muted">Tryzens Global</div>
+                  <ul class="mb-3">
+                    <li>Developed and maintained Salesforce solutions using Apex and LWC</li>
+                    <li>Worked with Agentforce and Mulesoft integrations</li>
+                    <li>Collaborated in an agile team to deliver high-quality solutions</li>
+                  </ul>
+                  <div>
+                    <span class="badge bg-info text-dark mx-1">Salesforce</span>
+                    <span class="badge bg-info text-dark mx-1">Apex</span>
+                    <span class="badge bg-info text-dark mx-1">LWC</span>
+                    <span class="badge bg-info text-dark mx-1">SOQL</span>
+                    <span class="badge bg-info text-dark mx-1">Mulesoft</span>
+                    <span class="badge bg-info text-dark mx-1">Agentforce</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Projects -->
+        <section id="projects" class="py-5">
           <div class="container">
-            <h2 class="display-4 pb-5 text-center">Recent Projects</h2>
-            <div class="row">
-              <!-- Credstream -->
+            <h2 class="text-center mb-5">Projects</h2>
+            <div class="row g-4">
               <div class="col-md-6">
-                <div class="cardhover card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card h-100 shadow-sm border-0">
                   <div class="card-body">
                     <h5 class="card-title">Credstream</h5>
-                    <p class="card-text">
-                      Credential integrated edge-based watermarking and visible
-                      overlay for tracking pirates in OTT devices.
-                    </p>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <ul class="list-unstyled d-flex flex-wrap gap-4 fw-bold">
-                        <li>Python</li>
-                        <li>Flutter</li>
-                        <li>Flask</li>
-                      </ul>
+                    <p class="card-text">Credential integrated edge-based watermarking and visible overlay for tracking pirates in OTT devices.</p>
+                    <div class="mb-2">
+                      <span class="badge bg-secondary mx-1">Python</span>
+                      <span class="badge bg-secondary mx-1">Flutter</span>
+                      <span class="badge bg-secondary mx-1">Flask</span>
                     </div>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <a
-                        href="https://github.com/SpaceCodr/Credstream"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i class="fa-github fa-2x fab"></i
-                      ></a>
-                      <a
-                        href="https://drive.google.com/file/d/1HXv9QLOrxxxE3PhgvPEr6LGkwychx7GY/view?usp=sharing"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i
-                          class="px-2 fa-solid fa-up-right-from-square fa-2x"
-                        ></i
-                      ></a>
-                    </div>
+                    <a href="https://github.com/SpaceCodr/Credstream" target="_blank" class="btn btn-outline-dark btn-sm me-2"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://drive.google.com/file/d/1HXv9QLOrxxxE3PhgvPEr6LGkwychx7GY/view?usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-up-right-from-square"></i> Demo</a>
                   </div>
                 </div>
               </div>
-              <!-- Portfolio -->
               <div class="col-md-6">
-                <div class="cardhover card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card h-100 shadow-sm border-0">
                   <div class="card-body">
                     <h5 class="card-title">Portfolio Website</h5>
-                    <p class="card-text">
-                      Responsive portfolio/ personal website for Umer Bin Shah,
-                      hosted using GitHub pages.
-                    </p>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <ul class="list-unstyled d-flex flex-wrap gap-4 fw-bold">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Bootstrap</li>
-                      </ul>
+                    <p class="card-text">Responsive portfolio/personal website for Umer Bin Shah, hosted using GitHub pages.</p>
+                    <div class="mb-2">
+                      <span class="badge bg-secondary mx-1">HTML</span>
+                      <span class="badge bg-secondary mx-1">CSS</span>
+                      <span class="badge bg-secondary mx-1">JavaScript</span>
+                      <span class="badge bg-secondary mx-1">Bootstrap</span>
                     </div>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <a
-                        href="https://github.com/SpaceCodr/spacecodr.github.io"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i class="fa-github fa-2x fab"></i
-                      ></a>
-                      <a
-                        href="https://spacecodr.github.io/"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i
-                          class="px-2 fa-solid fa-up-right-from-square fa-2x"
-                        ></i
-                      ></a>
-                    </div>
+                    <a href="https://github.com/SpaceCodr/spacecodr.github.io" target="_blank" class="btn btn-outline-dark btn-sm me-2"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://spacecodr.github.io/" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
                   </div>
                 </div>
               </div>
-              <!-- Trail -->
               <div class="col-md-6">
-                <div class="cardhover card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card h-100 shadow-sm border-0">
                   <div class="card-body">
                     <h5 class="card-title">Trail</h5>
-                    <p class="card-text">
-                      Mobile application for time management involving
-                      customizable pomodoro timer, task organizer, time tracker
-                      and detailed report.
-                    </p>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <ul class="list-unstyled d-flex flex-wrap gap-4 fw-bold">
-                        <li>Flutter</li>
-                        <li>Hive</li>
-                      </ul>
+                    <p class="card-text">Mobile application for time management involving customizable pomodoro timer, task organizer, time tracker and detailed report.</p>
+                    <div class="mb-2">
+                      <span class="badge bg-secondary mx-1">Flutter</span>
+                      <span class="badge bg-secondary mx-1">Hive</span>
                     </div>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <a
-                        href="https://github.com/SpaceCodr/Trail"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i class="fa-github fa-2x fab"></i
-                      ></a>
-                      <!-- <a href="" target="_blank" aria-label="My GitHub"
-                        ><i
-                          class="px-2 fa-solid fa-up-right-from-square fa-2x"
-                        ></i
-                      ></a> -->
-                    </div>
+                    <a href="https://github.com/SpaceCodr/Trail" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github"></i> GitHub</a>
                   </div>
                 </div>
               </div>
-              <!-- Mingle -->
               <div class="col-md-6">
-                <div class="cardhover card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card h-100 shadow-sm border-0">
                   <div class="card-body">
                     <h5 class="card-title">Mingle</h5>
-                    <p class="card-text">
-                      Application that allows users to post and accept projects
-                      of interest, making collaboration easier.
-                    </p>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <ul class="list-unstyled d-flex flex-wrap gap-4 fw-bold">
-                        <li>JavaFX</li>
-                        <li>Supabase</li>
-                      </ul>
+                    <p class="card-text">Application that allows users to post and accept projects of interest, making collaboration easier.</p>
+                    <div class="mb-2">
+                      <span class="badge bg-secondary mx-1">JavaFX</span>
+                      <span class="badge bg-secondary mx-1">Supabase</span>
                     </div>
-                    <div class="m-4"></div>
-                    <div class="p-0">
-                      <a
-                        href="https://github.com/niranjanneeru/Mingle"
-                        target="_blank"
-                        aria-label="My GitHub"
-                        ><i class="fa-github fa-2x fab"></i
-                      ></a>
-                      <!-- <a href="" target="_blank" aria-label="My GitHub"
-                        ><i
-                          class="px-2 fa-solid fa-up-right-from-square fa-2x"
-                        ></i
-                      ></a> -->
-                    </div>
+                    <a href="https://github.com/niranjanneeru/Mingle" target="_blank" class="btn btn-outline-dark btn-sm"><i class="fab fa-github"></i> GitHub</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
+        <!-- Certifications -->
+        <section id="certifications" class="py-5 bg-light">
+          <div class="container">
+            <h2 class="text-center mb-5">Certifications</h2>
+            <div class="row g-4 justify-content-center">
+              <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                  <img src="assets/cert-pd1.png" alt="Salesforce Platform Developer 1" class="mb-3 mx-auto" style="width: 100px; height: 100px; object-fit: contain;"/>
+                  <div class="card-body">
+                    <h5 class="card-title">Salesforce Platform Developer 1</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                  <img src="assets/SF-Certified_AI-Associate.png" alt="Salesforce Agentforce Associate" class="mb-3 mx-auto" style="width: 100px; height: 100px; object-fit: contain;"/>
+                  <div class="card-body">
+                    <h5 class="card-title">Salesforce Agentforce Associate</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 text-center p-3">
+                  <img src="assets/SF-Certified_AI-Specialist.png" alt="Salesforce Agentforce Specialist" class="mb-3 mx-auto" style="width: 100px; height: 100px; object-fit: contain;"/>
+                  <div class="card-body">
+                    <h5 class="card-title">Salesforce Agentforce Specialist</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Contact -->
+        <section id="contact" class="py-5">
+          <div class="container wide-section">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="card shadow-sm p-4 border-0 text-center wide-card">
+                  <h2 class="mb-4">Get In Touch</h2>
+                  <p class="lead">I'm currently looking for Software Engineering opportunities! If you know of any positions available, have any questions, or just want to say hi, please feel free to email me.</p>
+                  <a href="mailto:umerbinshah2001@gmail.com" class="btn btn-outline-dark btn-lg" target="_blank">Mail Me</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer py-3 bg-white mt-5" style="color: black; text-align: center; font-size: 1.2rem;">
+        <div class="container">
+          <div class="footer-content">
+            <p>&copy; 2025 Umer Bin Shah. All Rights Reserved.</p>
+          </div>
         </div>
-      </div>
-      <!-- Contact -->
-      <div id="contact" class="py-3 m-0" style="background-color: aliceblue">
-        <div class="container py-5">
-          <h2 class="display-4 mb-5 text-center">Get In Touch</h2>
-          <p class="lead text-center">
-            I'm currently looking for Software Engineering opportunities! If you
-            know of any positions available, if you have any questions, or if
-            you just want to say hi, please feel free to email me.
-          </p>
-          <p class="lead text-center">
-            <a
-              href="mailto:umerbinshah2001@gmail.com"
-              class="btn btn-outline-dark btn-lg"
-              target="_blank"
-              role="button"
-              aria-label="Resume/CV"
-              >Mail Me</a
-            >
-          </p>
-        </div>
-      </div>
+      </footer>
     </div>
+    <script>
+    // Scroll Progress Bar
+    window.addEventListener('scroll', function() {
+      const scrollBar = document.getElementById('scroll-progress');
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollBar.style.width = scrollPercent + '%';
+    });
+    </script>
   </body>
 </html>
