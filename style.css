@@ -35,6 +35,9 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -44,6 +47,10 @@ body {
   line-height: 1.6;
   letter-spacing: -0.01em;
   overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Dark Mode Variables */
@@ -71,6 +78,11 @@ body {
   justify-content: center;
   z-index: 10000;
   transition: opacity 0.5s ease;
+  pointer-events: all;
+}
+
+.loading-screen[style*="display: none"] {
+  pointer-events: none;
 }
 
 .loading-content {

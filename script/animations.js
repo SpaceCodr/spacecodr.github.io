@@ -6,6 +6,9 @@
 // ==========================================
 // 1. LOADING SCREEN
 // ==========================================
+// Ensure body is scrollable initially
+document.body.style.overflow = 'visible';
+
 window.addEventListener('load', () => {
   const loadingScreen = document.getElementById('loading-screen');
   const loadingProgress = document.querySelector('.loading-progress');
@@ -25,6 +28,7 @@ window.addEventListener('load', () => {
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
           loadingScreen.style.display = 'none';
+          document.body.style.overflow = 'visible';
           initAnimations();
         }, 400);
       }, 300);
@@ -36,95 +40,117 @@ window.addEventListener('load', () => {
 // 2. SUBTLE BACKGROUND PARTICLES
 // ==========================================
 const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+if (canvas && canvas.getContext) {
+  const ctx = canvas.getContext('2d');
 
-const particles = [];
-const particleCount = 50; // Reduced for minimalism
-
-class Particle {
-  constructor() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 1;
-    this.speedX = Math.random() * 0.3 - 0.15;
-    this.speedY = Math.random() * 0.3 - 0.15;
-    this.opacity = Math.random() * 0.3 + 0.1;
-  }
-
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if (this.x > canvas.width) this.x = 0;
-    if (this.x < 0) this.x = canvas.width;
-    if (this.y > canvas.height) this.y = 0;
-    if (this.y < 0) this.y = canvas.height;
-  }
-
-  draw() {
-    ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity})`;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-function initParticles() {
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
-}
-
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  particles.forEach(particle => {
-    particle.update();
-    particle.draw();
-  });
-
-  requestAnimationFrame(animateParticles);
-}
-
-initParticles();
-animateParticles();
-
-window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-});
+
+  const particles = [];
+  const particleCount = 50; // Reduced for minimalism
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = Math.random() * 0.3 - 0.15;
+      this.speedY = Math.random() * 0.3 - 0.15;
+      this.opacity = Math.random() * 0.3 + 0.1;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+    }
+
+    draw() {
+      ctx.fillStyle = `rgba(102, 126, 234, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function initParticles() {
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+
+    requestAnimationFrame(animateParticles);
+  }
+
+  initParticles();
+  animateParticles();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
 
 // ==========================================
 // 3. LENIS SMOOTH SCROLL
 // ==========================================
-const lenis = new Lenis({
-  duration: 1.5,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: 'vertical',
-  smooth: true,
-  smoothTouch: false,
-});
+let lenis;
 
-function raf(time) {
-  lenis.raf(time);
+// Initialize Lenis only if available
+if (typeof Lenis !== 'undefined') {
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    smooth: true,
+    smoothTouch: false,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 2,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
   requestAnimationFrame(raf);
 }
 
-requestAnimationFrame(raf);
-
-// Smooth scroll for anchor links
+// Smooth scroll for anchor links (works with or without Lenis)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = this.getAttribute('href');
     if (target && target !== '#') {
-      lenis.scrollTo(target, {
-        offset: -80,
-        duration: 1.2
-      });
+      const targetElement = document.querySelector(target);
+      if (targetElement) {
+        if (lenis) {
+          lenis.scrollTo(target, {
+            offset: -80,
+            duration: 1.2
+          });
+        } else {
+          // Fallback to native smooth scroll
+          const targetPosition = targetElement.offsetTop - 80;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
     }
   });
 });
@@ -144,6 +170,12 @@ window.addEventListener('scroll', function() {
 // 5. GSAP SCROLL ANIMATIONS (MINIMAL)
 // ==========================================
 function initAnimations() {
+  // Check if GSAP is loaded
+  if (typeof gsap === 'undefined') {
+    console.warn('GSAP not loaded, skipping animations');
+    return;
+  }
+
   gsap.registerPlugin(ScrollTrigger);
 
   // Subtle fade-in for hero elements
@@ -241,43 +273,47 @@ function initAnimations() {
 // 6. VANILLA TILT (SUBTLE)
 // ==========================================
 window.addEventListener('load', () => {
-  VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-    max: 3,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.1,
-    scale: 1.02
-  });
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 3,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.1,
+      scale: 1.02
+    });
+  }
 });
 
 // ==========================================
 // 7. MAGNETIC BUTTONS (SUBTLE)
 // ==========================================
-const magneticButtons = document.querySelectorAll('.btn-hero, .btn-contact, .btn-resume');
+if (typeof gsap !== 'undefined') {
+  const magneticButtons = document.querySelectorAll('.btn-hero, .btn-contact, .btn-resume');
 
-magneticButtons.forEach(button => {
-  button.addEventListener('mousemove', (e) => {
-    const rect = button.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+  magneticButtons.forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-    gsap.to(button, {
-      x: x * 0.15,
-      y: y * 0.15,
-      duration: 0.4,
-      ease: 'power2.out'
+      gsap.to(button, {
+        x: x * 0.15,
+        y: y * 0.15,
+        duration: 0.4,
+        ease: 'power2.out'
+      });
+    });
+
+    button.addEventListener('mouseleave', () => {
+      gsap.to(button, {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.4)'
+      });
     });
   });
-
-  button.addEventListener('mouseleave', () => {
-    gsap.to(button, {
-      x: 0,
-      y: 0,
-      duration: 0.6,
-      ease: 'elastic.out(1, 0.4)'
-    });
-  });
-});
+}
 
 // ==========================================
 // 8. DARK MODE TOGGLE
@@ -347,16 +383,21 @@ window.addEventListener('scroll', () => {
 const scrollIndicator = document.querySelector('.scroll-indicator');
 if (scrollIndicator) {
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      gsap.to(scrollIndicator, {
-        opacity: 0,
-        duration: 0.3
-      });
+    if (typeof gsap !== 'undefined') {
+      if (window.scrollY > 100) {
+        gsap.to(scrollIndicator, {
+          opacity: 0,
+          duration: 0.3
+        });
+      } else {
+        gsap.to(scrollIndicator, {
+          opacity: 1,
+          duration: 0.3
+        });
+      }
     } else {
-      gsap.to(scrollIndicator, {
-        opacity: 1,
-        duration: 0.3
-      });
+      // Fallback without GSAP
+      scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
     }
   });
 }
@@ -384,15 +425,21 @@ animateGradient();
 // 13. PERFORMANCE OPTIMIZATIONS
 // ==========================================
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  gsap.globalTimeline.timeScale(100);
-  lenis.destroy();
+  if (typeof gsap !== 'undefined') {
+    gsap.globalTimeline.timeScale(100);
+  }
+  if (lenis) {
+    lenis.destroy();
+  }
 }
 
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    gsap.globalTimeline.pause();
-  } else {
-    gsap.globalTimeline.resume();
+  if (typeof gsap !== 'undefined') {
+    if (document.hidden) {
+      gsap.globalTimeline.pause();
+    } else {
+      gsap.globalTimeline.resume();
+    }
   }
 });
 
