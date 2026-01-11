@@ -1,0 +1,430 @@
+/* ==========================================
+   LAYOUT SYSTEM
+   12-Column CSS Grid (No Bootstrap)
+   ========================================== */
+
+/* ==========================================
+   1. MASTER GRID CONTAINER
+   ========================================== */
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-lg);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* ==========================================
+   2. GRID COLUMN SPANS
+   ========================================== */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* ==========================================
+   3. LAYOUT PATTERNS
+   ========================================== */
+
+/* Full bleed (full width) */
+.layout-full-bleed {
+  grid-column: 1 / -1;
+}
+
+/* Content width (10 columns centered) */
+.layout-content {
+  grid-column: 2 / -2;
+}
+
+/* Narrow width (6 columns centered) */
+.layout-narrow {
+  grid-column: 4 / -4;
+}
+
+/* Asymmetric layouts */
+.layout-asymmetric-left {
+  grid-column: 1 / 8;
+}
+
+.layout-asymmetric-right {
+  grid-column: 6 / -1;
+}
+
+/* ==========================================
+   4. SECTION LAYOUTS
+   ========================================== */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-alt-bg {
+  background: var(--color-sand);
+}
+
+/* Section padding */
+.section-spacing-lg {
+  padding: var(--space-5xl) 0;
+}
+
+.section-spacing-md {
+  padding: var(--space-4xl) 0;
+}
+
+.section-spacing-sm {
+  padding: var(--space-3xl) 0;
+}
+
+/* Full height sections */
+.section-full-height {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-tall {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-half {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   5. CARD GRID PATTERNS
+   ========================================== */
+
+/* 2-column card grid */
+.grid-cards-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: var(--space-lg);
+}
+
+/* 3-column card grid */
+.grid-cards-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-lg);
+}
+
+/* 4-column card grid */
+.grid-cards-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: var(--space-md);
+}
+
+/* ==========================================
+   6. BENTO BOX LAYOUT
+   ========================================== */
+.grid-bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: var(--space-md);
+}
+
+.card-wide {
+  grid-column: span 2;
+}
+
+.card-tall {
+  grid-row: span 2;
+}
+
+.card-featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* ==========================================
+   7. FLEXBOX UTILITIES
+   ========================================== */
+
+/* Flex containers */
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+/* Flex direction */
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Flex wrap */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Justify content */
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+/* Align items */
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+/* Gap utilities */
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+.gap-2xl { gap: var(--space-2xl); }
+
+/* ==========================================
+   8. SPACING UTILITIES
+   ========================================== */
+
+/* Margin utilities */
+.m-0 { margin: 0; }
+.m-auto { margin: auto; }
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.ml-xs { margin-left: var(--space-xs); }
+.ml-sm { margin-left: var(--space-sm); }
+.ml-md { margin-left: var(--space-md); }
+.ml-auto { margin-left: auto; }
+.mr-xs { margin-right: var(--space-xs); }
+.mr-sm { margin-right: var(--space-sm); }
+.mr-md { margin-right: var(--space-md); }
+.mr-auto { margin-right: auto; }
+
+/* Padding utilities */
+.p-0 { padding: 0; }
+.pt-xs { padding-top: var(--space-xs); }
+.pt-sm { padding-top: var(--space-sm); }
+.pt-md { padding-top: var(--space-md); }
+.pt-lg { padding-top: var(--space-lg); }
+.pt-xl { padding-top: var(--space-xl); }
+.pb-xs { padding-bottom: var(--space-xs); }
+.pb-sm { padding-bottom: var(--space-sm); }
+.pb-md { padding-bottom: var(--space-md); }
+.pb-lg { padding-bottom: var(--space-lg); }
+.pb-xl { padding-bottom: var(--space-xl); }
+.pl-xs { padding-left: var(--space-xs); }
+.pl-sm { padding-left: var(--space-sm); }
+.pl-md { padding-left: var(--space-md); }
+.pr-xs { padding-right: var(--space-xs); }
+.pr-sm { padding-right: var(--space-sm); }
+.pr-md { padding-right: var(--space-md); }
+
+/* ==========================================
+   9. RESPONSIVE LAYOUT
+   ========================================== */
+@media (max-width: 1024px) {
+  /* Tablet: Reduce to 8 columns */
+  .container-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--space-md);
+  }
+
+  .layout-content {
+    grid-column: 1 / -1;
+  }
+
+  .layout-narrow {
+    grid-column: 2 / -2;
+  }
+
+  .layout-asymmetric-left,
+  .layout-asymmetric-right {
+    grid-column: 1 / -1;
+  }
+
+  .grid-bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .card-featured {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile: Single column */
+  .container-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: 0 var(--space-md);
+  }
+
+  .layout-full-bleed,
+  .layout-content,
+  .layout-narrow,
+  .layout-asymmetric-left,
+  .layout-asymmetric-right,
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+  .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    grid-column: 1 / -1;
+  }
+
+  /* Stack card grids */
+  .grid-cards-2,
+  .grid-cards-3,
+  .grid-cards-4 {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .grid-bento {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .card-wide,
+  .card-tall,
+  .card-featured {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  /* Reduce section spacing on mobile */
+  .section-spacing-lg {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-spacing-md {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-spacing-sm {
+    padding: var(--space-xl) 0;
+  }
+
+  /* Adjust full height sections for mobile */
+  .section-full-height,
+  .section-tall {
+    min-height: auto;
+    padding: var(--space-3xl) 0;
+  }
+}
+
+/* ==========================================
+   10. SECTION HEADER LAYOUT
+   ========================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ash);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--color-slate);
+  max-width: 700px;
+  margin: 0 auto var(--space-md);
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-warm);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: var(--space-2xl);
+  }
+}

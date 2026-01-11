@@ -1,0 +1,561 @@
+/* ==========================================
+   ANIMATIONS & TRANSITIONS
+   Keyframes, Transitions, Micro-interactions
+   ========================================== */
+
+/* ==========================================
+   1. FADE ANIMATIONS
+   ========================================== */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays for fade-in animations */
+.fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-in-up:nth-child(5) { animation-delay: 0.5s; }
+
+/* ==========================================
+   2. HERO ANIMATIONS
+   ========================================== */
+
+/* Gradient text animation */
+@keyframes gradient-text {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text-animated {
+  background-size: 200% 200%;
+  animation: gradient-text 8s ease infinite;
+}
+
+/* Gradient background shift */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+/* ==========================================
+   3. SCROLL INDICATOR
+   ========================================== */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+/* ==========================================
+   4. FLOATING ANIMATION
+   ========================================== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ==========================================
+   5. SLIDE ANIMATIONS
+   ========================================== */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================
+   6. SCALE ANIMATIONS
+   ========================================== */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   7. ROTATE ANIMATIONS
+   ========================================== */
+.rotate-in {
+  opacity: 0;
+  transform: rotate(-5deg) scale(0.9);
+  animation: rotateIn 0.6s ease-out forwards;
+}
+
+@keyframes rotateIn {
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* ==========================================
+   8. PULSE ANIMATION
+   ========================================== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ==========================================
+   9. SHIMMER EFFECT (Loading States)
+   ========================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-sand) 0%,
+    var(--color-stone) 50%,
+    var(--color-sand) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ==========================================
+   10. SHINE SWEEP (Stripe Press Style)
+   ========================================== */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+/* ==========================================
+   11. UNDERLINE EXPAND (Links)
+   ========================================== */
+.underline-effect {
+  position: relative;
+}
+
+.underline-effect::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-terracotta);
+  transition: width 0.3s ease;
+}
+
+.underline-effect:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   12. STAGGER ANIMATIONS
+   ========================================== */
+
+/* Stagger for grid items */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.stagger-item:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.stagger-item:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.stagger-item:nth-child(4) {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.stagger-item:nth-child(5) {
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.stagger-item:nth-child(6) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+/* ==========================================
+   13. DRAW ANIMATION (Lines & Dividers)
+   ========================================== */
+@keyframes drawLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.draw-line {
+  width: 0;
+  animation: drawLine 1s ease-out forwards;
+}
+
+/* ==========================================
+   14. TYPEWRITER EFFECT
+   ========================================== */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid var(--color-terracotta);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-terracotta);
+  }
+}
+
+/* ==========================================
+   15. REVEAL ANIMATIONS (GSAP Compatible)
+   ========================================== */
+
+/* For GSAP ScrollTrigger animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ==========================================
+   16. PAGE TRANSITION
+   ========================================== */
+@keyframes pageLoadFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+  animation: pageLoadFade 0.6s ease-out;
+}
+
+/* ==========================================
+   17. NUMBER COUNT UP (Stats)
+   ========================================== */
+.count-up {
+  animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   18. BLUR IN
+   ========================================== */
+.blur-in {
+  filter: blur(10px);
+  opacity: 0;
+  animation: blurIn 0.8s ease-out forwards;
+}
+
+@keyframes blurIn {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   19. PARALLAX LAYERS
+   ========================================== */
+.parallax-layer {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   20. HOVER EFFECTS
+   ========================================== */
+
+/* Lift on hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Scale on hover */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Glow on hover */
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(200, 93, 63, 0.3);
+}
+
+/* ==========================================
+   21. MOBILE MENU ANIMATIONS
+   ========================================== */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu-enter {
+  animation: slideInFromRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* ==========================================
+   22. LOADING ANIMATIONS
+   ========================================== */
+
+/* Spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Dots loading */
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+.dot-pulse span:nth-child(1) {
+  animation: dotPulse 1.4s infinite 0s;
+}
+
+.dot-pulse span:nth-child(2) {
+  animation: dotPulse 1.4s infinite 0.2s;
+}
+
+.dot-pulse span:nth-child(3) {
+  animation: dotPulse 1.4s infinite 0.4s;
+}
+
+/* ==========================================
+   23. REDUCED MOTION OVERRIDES
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floating,
+  .bounce,
+  .pulse,
+  .shimmer,
+  .shine-effect::before {
+    animation: none !important;
+  }
+}
+
+/* ==========================================
+   24. TRANSITION UTILITIES
+   ========================================== */
+.transition-smooth {
+  transition: var(--transition-smooth);
+}
+
+.transition-bounce {
+  transition: var(--transition-bounce);
+}
+
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+.transition-slow {
+  transition: all 0.6s ease;
+}

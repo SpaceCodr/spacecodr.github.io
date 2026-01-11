@@ -1,0 +1,365 @@
+/* ==========================================
+   PORTFOLIO REBUILD - MAIN STYLES
+   Stripe Press + B-EGG Hybrid Design
+   ========================================== */
+
+/* ==========================================
+   1. CSS VARIABLES - DESIGN SYSTEM
+   ========================================== */
+:root {
+  /* Base Colors - Warm Neutrals */
+  --color-cream: #FAF8F5;
+  --color-sand: #F5F1E8;
+  --color-stone: #E5DFD4;
+
+  /* Text Colors */
+  --color-charcoal: #2C2823;
+  --color-graphite: #4A4540;
+  --color-slate: #6B635B;
+  --color-ash: #9B938C;
+
+  /* Accent Colors - Professional Warmth */
+  --color-terracotta: #C85D3F;
+  --color-rust: #A84B33;
+  --color-copper: #B87A5C;
+  --color-sage: #8B9A7C;
+
+  /* Tech Accent - Modern Contrast */
+  --color-indigo: #5B6FAE;
+  --color-indigo-light: #7A8EC4;
+
+  /* Gradients */
+  --gradient-warm: linear-gradient(135deg, #C85D3F 0%, #B87A5C 100%);
+  --gradient-hero: linear-gradient(160deg, #FAF8F5 0%, #F5E8DC 40%, #E8D5C4 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(200, 93, 63, 0.08) 0%, transparent 100%);
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 3rem;      /* 48px */
+  --space-2xl: 4rem;     /* 64px */
+  --space-3xl: 6rem;     /* 96px */
+  --space-4xl: 8rem;     /* 128px */
+  --space-5xl: 12rem;    /* 192px */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgba(44, 40, 35, 0.08), 0 1px 2px -1px rgba(44, 40, 35, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(44, 40, 35, 0.1), 0 2px 4px -2px rgba(44, 40, 35, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(44, 40, 35, 0.1), 0 4px 6px -4px rgba(44, 40, 35, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(44, 40, 35, 0.12), 0 8px 10px -6px rgba(44, 40, 35, 0.1);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 50px;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --color-cream: #1C1916;
+  --color-sand: #252220;
+  --color-stone: #3A3733;
+
+  --color-charcoal: #F5F1E8;
+  --color-graphite: #E5DFD4;
+  --color-slate: #C4BFB5;
+  --color-ash: #9B938C;
+
+  /* Brighter accents in dark mode */
+  --color-terracotta: #E87A5D;
+  --color-rust: #D96847;
+  --color-copper: #D99677;
+  --color-sage: #A4B88C;
+  --color-indigo: #8599D4;
+
+  --gradient-hero: linear-gradient(160deg, #1C1916 0%, #2A2320 40%, #3A312A 100%);
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   2. RESET & BASE STYLES
+   ========================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--color-cream);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================
+   3. SELECTION & SCROLLBAR
+   ========================================== */
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+
+::-moz-selection {
+  background: var(--color-terracotta);
+  color: var(--color-cream);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-warm);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rust);
+}
+
+/* ==========================================
+   4. ACCESSIBILITY
+   ========================================== */
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible styles */
+*:focus-visible {
+  outline: 3px solid var(--color-terracotta);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================
+   5. LOADING SCREEN
+   ========================================== */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.5s ease;
+  pointer-events: all;
+}
+
+.loading-screen[style*="display: none"] {
+  pointer-events: none;
+}
+
+.loading-content {
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.loading-logo {
+  font-family: 'Crimson Pro', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-lg);
+}
+
+.loading-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--color-stone);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.loading-progress {
+  width: 0%;
+  height: 100%;
+  background: var(--gradient-warm);
+  transition: width 0.3s ease;
+}
+
+.loading-counter {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-slate);
+}
+
+/* ==========================================
+   6. BACKGROUND ELEMENTS
+   ========================================== */
+.particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.gradient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--gradient-subtle);
+  opacity: 0.3;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   7. SCROLL PROGRESS BAR
+   ========================================== */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-warm);
+  transition: width 0.1s ease-out;
+}
+
+/* ==========================================
+   8. UTILITY CLASSES
+   ========================================== */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-spacing {
+  padding: var(--space-5xl) 0;
+}
+
+@media (max-width: 992px) {
+  .section-spacing {
+    padding: var(--space-4xl) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: var(--space-3xl) 0;
+  }
+
+  .container,
+  .container-narrow {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* ==========================================
+   9. REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================
+   10. PRINT STYLES
+   ========================================== */
+@media print {
+  .navbar,
+  .scroll-progress-container,
+  .particles-canvas,
+  .gradient-bg,
+  .loading-screen,
+  .theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

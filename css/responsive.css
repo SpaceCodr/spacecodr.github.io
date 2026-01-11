@@ -1,0 +1,513 @@
+/* ==========================================
+   RESPONSIVE DESIGN
+   Comprehensive Media Queries
+   ========================================== */
+
+/* ==========================================
+   1. DESKTOP LARGE (>= 1536px)
+   ========================================== */
+@media (min-width: 1536px) {
+  .container,
+  .container-grid {
+    max-width: 1536px;
+  }
+
+  .section-spacing-lg {
+    padding: 14rem 0;
+  }
+}
+
+/* ==========================================
+   2. DESKTOP (1280px - 1535px)
+   ========================================== */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .container,
+  .container-grid {
+    max-width: 1280px;
+  }
+}
+
+/* ==========================================
+   3. LAPTOP (1024px - 1279px)
+   ========================================== */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .container,
+  .container-grid {
+    max-width: 1024px;
+    padding: 0 var(--space-md);
+  }
+
+  .section-spacing-lg {
+    padding: var(--space-4xl) 0;
+  }
+
+  .hero-section {
+    min-height: 90vh;
+  }
+}
+
+/* ==========================================
+   4. TABLET (768px - 1023px)
+   ========================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Layout adjustments */
+  .container,
+  .container-grid {
+    max-width: 768px;
+    padding: 0 var(--space-md);
+  }
+
+  /* Typography adjustments */
+  :root {
+    --text-display-xl: clamp(3.5rem, 8vw, 6rem);
+    --text-display-lg: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  /* Section spacing */
+  .section-spacing-lg {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-spacing-md {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* Grid adjustments */
+  .grid-cards-3,
+  .grid-cards-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Hero adjustments */
+  .hero-section {
+    min-height: 80vh;
+  }
+
+  /* Button adjustments */
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+  }
+
+  /* Timeline adjustments */
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-icon {
+    width: 40px;
+    height: 40px;
+    left: -31px;
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    gap: var(--space-lg);
+  }
+}
+
+/* ==========================================
+   5. MOBILE LARGE (640px - 767px)
+   ========================================== */
+@media (min-width: 640px) and (max-width: 767px) {
+  /* Ensure mobile optimizations */
+  .container,
+  .container-grid {
+    padding: 0 var(--space-md);
+  }
+
+  /* All grids to single column */
+  .grid-cards-2,
+  .grid-cards-3,
+  .grid-cards-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-bento {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   6. MOBILE (< 768px)
+   ========================================== */
+@media (max-width: 768px) {
+  /* Spacing adjustments */
+  :root {
+    --space-3xl: 4rem;
+    --space-4xl: 5rem;
+    --space-5xl: 6rem;
+  }
+
+  /* Typography mobile scaling */
+  :root {
+    --text-display-xl: clamp(2.5rem, 10vw, 4rem);
+    --text-display-lg: clamp(2rem, 8vw, 3.5rem);
+    --text-display-md: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  /* Navbar mobile */
+  .navbar {
+    height: 60px;
+  }
+
+  .navbar-content {
+    padding: 0 var(--space-md);
+  }
+
+  .navbar-brand {
+    font-size: 1.125rem;
+  }
+
+  /* Hero mobile */
+  .hero-section {
+    min-height: auto;
+    padding: var(--space-4xl) var(--space-md);
+    padding-top: calc(60px + var(--space-3xl));
+  }
+
+  .hero-meta {
+    margin-top: var(--space-lg);
+  }
+
+  .hero-name {
+    font-size: var(--text-h4);
+  }
+
+  .hero-role {
+    font-size: var(--text-body);
+  }
+
+  /* Section adjustments */
+  .section-spacing-lg {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-spacing-md {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-spacing-sm {
+    padding: var(--space-xl) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* Full height sections */
+  .section-full-height,
+  .section-tall {
+    min-height: auto;
+    padding: var(--space-3xl) 0;
+  }
+
+  /* Cards mobile */
+  .card {
+    padding: var(--space-md);
+  }
+
+  .project-card,
+  .experience-card,
+  .cert-card {
+    padding: var(--space-md);
+  }
+
+  /* Buttons mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.875rem 1.5rem;
+    justify-content: center;
+  }
+
+  .btn-ghost {
+    width: auto;
+  }
+
+  /* Timeline mobile */
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: var(--space-md);
+  }
+
+  .timeline-icon {
+    width: 36px;
+    height: 36px;
+    left: -26px;
+  }
+
+  /* Stats grid mobile - keep 2 columns but with smaller gap */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    max-width: 100%;
+  }
+
+  /* Footer mobile */
+  .footer {
+    padding: var(--space-xl) 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+
+  /* Particles - reduce opacity on mobile */
+  .particles-canvas {
+    opacity: 0.2;
+  }
+
+  /* Loading screen mobile */
+  .loading-logo {
+    font-size: 3rem;
+  }
+
+  /* Theme toggle mobile */
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
+  }
+}
+
+/* ==========================================
+   7. MOBILE SMALL (< 640px)
+   ========================================== */
+@media (max-width: 640px) {
+  .container,
+  .container-grid {
+    padding: 0 var(--space-sm);
+  }
+
+  /* Even smaller typography */
+  :root {
+    --text-display-xl: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  /* Tighter spacing */
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .section-spacing-lg {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-spacing-md {
+    padding: var(--space-xl) 0;
+  }
+
+  /* Buttons full width */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Cards tighter padding */
+  .card,
+  .project-card,
+  .experience-card,
+  .cert-card {
+    padding: var(--space-sm);
+  }
+
+  /* Stats smaller */
+  .stat-number {
+    font-size: var(--text-h2);
+  }
+
+  /* Keep stats grid as 2 columns even on small mobile */
+  .stats-grid {
+    gap: var(--space-sm);
+  }
+}
+
+/* ==========================================
+   8. MOBILE EXTRA SMALL (< 375px)
+   ========================================== */
+@media (max-width: 375px) {
+  :root {
+    --text-display-xl: clamp(1.75rem, 10vw, 3rem);
+    --text-h1: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: var(--space-3xl) var(--space-sm);
+    padding-top: calc(60px + var(--space-2xl));
+  }
+
+  .section-spacing-lg {
+    padding: var(--space-xl) 0;
+  }
+}
+
+/* ==========================================
+   9. LANDSCAPE MOBILE
+   ========================================== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding: var(--space-2xl) var(--space-md);
+    padding-top: calc(60px + var(--space-lg));
+  }
+
+  .section-full-height {
+    min-height: auto;
+    padding: var(--space-xl) 0;
+  }
+
+  .loading-screen {
+    padding: var(--space-lg);
+  }
+}
+
+/* ==========================================
+   10. TOUCH DEVICE OPTIMIZATIONS
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .navbar-link {
+    padding: var(--space-sm);
+  }
+
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Disable hover effects that don't work on touch */
+  .card:hover::before {
+    display: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  /* Remove complex transitions on touch */
+  .card,
+  .btn-primary,
+  .btn-secondary {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+/* ==========================================
+   11. PRINT STYLES
+   ========================================== */
+@media print {
+  /* Hide non-printable elements */
+  .navbar,
+  .mobile-menu-toggle,
+  .theme-toggle,
+  .scroll-progress-container,
+  .scroll-indicator,
+  .particles-canvas,
+  .gradient-bg,
+  .loading-screen,
+  .btn-primary,
+  .btn-secondary,
+  .footer {
+    display: none !important;
+  }
+
+  /* Print-friendly layout */
+  body {
+    background: white;
+    color: black;
+  }
+
+  section {
+    page-break-inside: avoid;
+    padding: 2rem 0;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+  }
+
+  /* Remove shadows and transparency */
+  .card,
+  .navbar,
+  .experience-card,
+  .cert-card {
+    box-shadow: none;
+    background: white;
+    backdrop-filter: none;
+  }
+
+  /* Ensure readable text */
+  h1, h2, h3, h4, h5, h6,
+  p, li {
+    color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
+/* ==========================================
+   12. HIGH CONTRAST MODE
+   ========================================== */
+@media (prefers-contrast: high) {
+  :root {
+    --color-charcoal: #000000;
+    --color-cream: #FFFFFF;
+    --color-terracotta: #AA3300;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    border-width: 3px;
+  }
+}
+
+/* ==========================================
+   13. DARK MODE MEDIA QUERY
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+  /* Only apply if user hasn't explicitly set a preference */
+  html:not([data-theme]) {
+    /* Apply dark mode variables */
+    --color-cream: #1C1916;
+    --color-sand: #252220;
+    --color-stone: #3A3733;
+
+    --color-charcoal: #F5F1E8;
+    --color-graphite: #E5DFD4;
+    --color-slate: #C4BFB5;
+    --color-ash: #9B938C;
+
+    --color-terracotta: #E87A5D;
+    --color-rust: #D96847;
+    --color-copper: #D99677;
+    --color-sage: #A4B88C;
+    --color-indigo: #8599D4;
+  }
+}

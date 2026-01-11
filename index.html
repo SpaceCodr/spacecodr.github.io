@@ -1,442 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/66dc5cfdc8.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="shortcut icon"
-      href="assets/favicon.ico"
-      type="image/x-icon"
-    />
-    <!-- Google Fonts: Space Grotesk + Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- GSAP for animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <!-- Vanilla Tilt for 3D effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    <meta
-      name="description"
-      content="I am Umer Bin Shah, a 2023 graduate of TKM College of Engineering (KTU) in Kollam, Kerala, India with a Bachelor of Technology degree in Computer Science and Engineering. I am passionate about software engineering and development, and I am dedicated to continuous learning."
-    />
-    <title>Umer Bin Shah</title>
-    <!-- "Start with curiosity, build with passion, and always leave room for play." -->
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Umer Bin Shah - Software Engineer specializing in Salesforce, MuleSoft, and enterprise integration. 4x Salesforce Certified developer building practical solutions that drive business value.">
+  <meta name="keywords" content="Umer Bin Shah, Software Engineer, Salesforce Developer, MuleSoft Developer, Apex, Lightning Web Components, Integration">
+  <meta name="author" content="Umer Bin Shah">
+  <title>Umer Bin Shah - Software Engineer</title>
 
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-      <div class="loading-content">
-        <div class="loading-logo">UBS</div>
-        <div class="loading-bar">
-          <div class="loading-progress"></div>
-        </div>
-        <div class="loading-counter">0%</div>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/66dc5cfdc8.js" crossorigin="anonymous"></script>
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+
+  <!-- Vanilla Tilt for 3D effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" defer></script>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">UBS</div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
       </div>
+      <div class="loading-counter">0%</div>
     </div>
+  </div>
 
-    <!-- Animated Background -->
-    <canvas id="particles-canvas" class="particles-canvas"></canvas>
-    <div class="gradient-bg"></div>
+  <!-- Background Elements -->
+  <canvas id="particles-canvas" class="particles-canvas"></canvas>
+  <div class="gradient-bg"></div>
 
-    <div class="scroll-progress-container">
-      <div class="scroll-progress-bar"></div>
-    </div>
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar"></div>
+  </div>
 
-    <script src="script/script.js"></script>
-    <div id="root">
-      <!-- Scroll Progress Bar -->
-      <div id="scroll-progress" style="position:fixed;top:0;left:0;width:0;height:4px;background:#007bff;z-index:2000;transition:width 0.2s;"></div>
-      <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand fw-bold" href="#home">Umer Bin Shah</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-              <li class="nav-item"><a class="nav-link" href="https://github.com/SpaceCodr" target="_blank"><i class="fab fa-github"></i></a></li>
-              <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/umerbinshah/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-              <li class="nav-item">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                  <i class="fas fa-moon"></i>
-                </button>
-              </li>
-            </ul>
+  <!-- Root Container -->
+  <div id="root">
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar-content">
+        <a href="#home" class="navbar-brand">Umer Bin Shah</a>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="navbar-menu">
+          <li><a href="#about" class="navbar-link">About</a></li>
+          <li><a href="#philosophy" class="navbar-link">Philosophy</a></li>
+          <li><a href="#experience" class="navbar-link">Experience</a></li>
+          <li><a href="#projects" class="navbar-link">Work</a></li>
+          <li><a href="#certifications" class="navbar-link">Certifications</a></li>
+          <li><a href="#contact" class="navbar-link">Contact</a></li>
+          <li>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+      <!-- Hero Section -->
+      <section id="home" class="hero-section section-full-height">
+        <div class="hero-gradient gradient-animated"></div>
+        <div class="hero-content">
+          <h1 class="hero-display gradient-text-animated">
+            <span class="hero-line">Building practical</span>
+            <span class="hero-line">software solutions</span>
+            <span class="hero-line">that drive real</span>
+            <span class="hero-line">business value</span>
+          </h1>
+          <div class="hero-meta">
+            <p class="hero-name">Umer Bin Shah</p>
+            <p class="hero-role">Software Developer | Integration Specialist | MuleSoft | Salesforce</p>
           </div>
+          <a href="#about" class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-arrow-down bounce"></i>
+          </a>
         </div>
-      </header>
-      <main class="pt-5">
-        <!-- Hero -->
-        <section id="home" class="d-flex align-items-center min-vh-100 hero-section">
-          <div class="hero-gradient"></div>
-          <div class="container text-center position-relative" style="z-index: 2;">
-            <div class="hero-content fade-in">
-              <p class="hero-greeting mb-3">Hi, I'm</p>
-              <h1 class="hero-title mb-4">Umer Bin Shah</h1>
-              <p class="hero-subtitle mb-5">Software Engineer | 4x Salesforce Certified | Agentblazer Legend | Specializing in Salesforce & MuleSoft</p>
-              <div class="hero-cta mb-4">
-                <a href="https://github.com/SpaceCodr" target="_blank" class="btn btn-hero btn-dark me-3"><i class="fab fa-github me-2"></i>GitHub</a>
-                <a href="https://www.linkedin.com/in/umerbinshah/" target="_blank" class="btn btn-hero btn-primary"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section-spacing-lg">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="container-narrow">
+            <p class="lead text-center">
+              I'm a Software Engineer specializing in building practical, end-to-end solutions that automate tasks, integrate APIs, and enhance user experience. With expertise in Salesforce and MuleSoft, I create scalable solutions that drive business value.
+            </p>
+
+            <div class="stats-grid">
+              <div class="stat">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Experience</span>
               </div>
-              <a href="#about" class="scroll-indicator">
-                <span>Scroll to explore</span>
-                <i class="fas fa-arrow-down"></i>
+              <div class="stat">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Certifications</span>
+              </div>
+            </div>
+
+            <p class="body text-center mt-xl">
+              Currently at Tryzens, I architect enterprise integration solutions using MuleSoft Anypoint Platform and build custom Salesforce applications with Apex and Lightning Web Components. My work focuses on connecting systems, automating workflows, and delivering solutions that make a measurable impact.
+            </p>
+
+            <p class="body text-center">
+              I'm passionate about clean code, thoughtful design, and continuous learning. When I step away from the keyboard, you'll find me by the water with a fishing rod or at home with my family.
+            </p>
+
+            <div class="flex justify-center gap-md mt-xl" style="flex-wrap: wrap;">
+              <a href="https://docs.google.com/document/d/1s7RdswN2A4h3vFZFqWQZzMfqo0xxo-cQUeR0fZ8hBbI/edit?usp=sharing" target="_blank" class="btn-primary">
+                <i class="fas fa-file-alt"></i> View Resume
+              </a>
+              <a href="#contact" class="btn-secondary">
+                <i class="fas fa-envelope"></i> Get in Touch
               </a>
             </div>
           </div>
-        </section>
-        <!-- About -->
-        <section id="about" class="section-about">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-10">
-                <div class="section-header text-center mb-5 fade-in-up">
-                  <h2 class="section-title">About Me</h2>
-                  <div class="section-divider"></div>
-                </div>
-                <div class="about-content fade-in-up">
-                  <p class="about-description">I'm a Software Engineer specializing in building practical, end-to-end solutions that automate tasks, integrate APIs, and enhance user experience. With expertise in Salesforce and MuleSoft, I create scalable solutions that drive business value.</p>
+        </div>
+      </section>
 
-                  <div class="skills-section mt-5">
-                    <h3 class="skills-heading mb-4">Technical Skills</h3>
-                    <div class="skills-grid">
-                      <div class="skill-category">
-                        <h4 class="skill-category-title">Languages</h4>
-                        <div class="skill-tags">
-                          <span class="skill-tag">Python</span>
-                          <span class="skill-tag">JavaScript</span>
-                          <span class="skill-tag">Apex</span>
-                          <span class="skill-tag">SQL</span>
-                          <span class="skill-tag">C</span>
-                        </div>
-                      </div>
-                      <div class="skill-category">
-                        <h4 class="skill-category-title">Frameworks & Tools</h4>
-                        <div class="skill-tags">
-                          <span class="skill-tag">Salesforce</span>
-                          <span class="skill-tag">MuleSoft</span>
-                          <span class="skill-tag">LWC</span>
-                          <span class="skill-tag">Agentforce</span>
-                          <span class="skill-tag">Flask</span>
-                          <span class="skill-tag">Flutter</span>
-                        </div>
-                      </div>
-                      <div class="skill-category">
-                        <h4 class="skill-category-title">Technologies</h4>
-                        <div class="skill-tags">
-                          <span class="skill-tag">DataWeave</span>
-                          <span class="skill-tag">RAML</span>
-                          <span class="skill-tag">MuleSoft CloudHub</span>
-                          <span class="skill-tag">Git</span>
-                          <span class="skill-tag">SOQL</span>
-                          <span class="skill-tag">Hive</span>
-                          <span class="skill-tag">HTML/CSS</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="text-center mt-5">
-                    <a href="https://docs.google.com/document/d/1s7RdswN2A4h3vFZFqWQZzMfqo0xxo-cQUeR0fZ8hBbI/edit?usp=sharing" class="btn btn-resume btn-lg" target="_blank">
-                      <i class="fas fa-external-link-alt me-2"></i>View Resume
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Experience -->
-        <section id="experience" class="section-experience">
-          <div class="container">
-            <div class="section-header text-center mb-5 fade-in-up">
-              <h2 class="section-title">Experience</h2>
-              <div class="section-divider"></div>
-            </div>
-            <div class="timeline-container">
-              <div class="timeline">
-                <div class="timeline-item fade-in-up">
-                  <div class="timeline-icon">
-                    <img src="assets/tryzens_logo.png" alt="Tryzens Global" style="width:48px;height:48px;object-fit:contain;border-radius:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;"/>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="experience-card" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-perspective="1000">
-                      <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap">
-                        <div>
-                          <h3 class="experience-title">Developer</h3>
-                          <p class="experience-company">Tryzens Global</p>
-                        </div>
-                        <span class="experience-duration">Oct 2025 - Present</span>
-                      </div>
-                      <ul class="experience-list mb-3">
-                        <li>Architecting and implementing enterprise integration solutions using MuleSoft Anypoint Platform</li>
-                        <li>Developing scalable APIs and orchestrating complex data flows across multiple systems</li>
-                        <li>Leading technical design and delivery of integration solutions for client projects</li>
-                      </ul>
-                      <div class="experience-tags">
-                        <span class="skill-tag-sm">MuleSoft</span>
-                        <span class="skill-tag-sm">MuleSoft Anypoint Platform</span>
-                        <span class="skill-tag-sm">DataWeave</span>
-                        <span class="skill-tag-sm">RAML</span>
-                        <span class="skill-tag-sm">API Design</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item fade-in-up">
-                  <div class="timeline-icon">
-                    <img src="assets/tryzens_logo.png" alt="Tryzens Global" style="width:48px;height:48px;object-fit:contain;border-radius:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;"/>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="experience-card" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-perspective="1000">
-                      <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap">
-                        <div>
-                          <h3 class="experience-title">Associate Software Developer</h3>
-                          <p class="experience-company">Tryzens Global</p>
-                        </div>
-                        <span class="experience-duration">Apr 2024 - Oct 2025</span>
-                      </div>
-                      <ul class="experience-list mb-3">
-                        <li>Developed and maintained Salesforce solutions using Apex and Lightning Web Components</li>
-                        <li>Implemented custom Lightning components to enhance user experience and system functionality</li>
-                        <li>Collaborated in an agile team to deliver high-quality solutions meeting client requirements</li>
-                      </ul>
-                      <div class="experience-tags">
-                        <span class="skill-tag-sm">Apex Programming</span>
-                        <span class="skill-tag-sm">Lightning Web Components</span>
-                        <span class="skill-tag-sm">SOQL</span>
-                        <span class="skill-tag-sm">Salesforce</span>
-                        <span class="skill-tag-sm">Process Automation</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="timeline-item fade-in-up">
-                  <div class="timeline-icon">
-                    <img src="assets/tryzens_logo.png" alt="Tryzens Global" style="width:48px;height:48px;object-fit:contain;border-radius:0.7rem;box-shadow:0 2px 8px rgba(0,0,0,0.07);background:#fff;"/>
-                  </div>
-                  <div class="timeline-content">
-                    <div class="experience-card" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-perspective="1000">
-                      <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap">
-                        <div>
-                          <h3 class="experience-title">Software Engineer Trainee</h3>
-                          <p class="experience-company">Tryzens Global</p>
-                        </div>
-                        <span class="experience-duration">Oct 2023 - Apr 2024</span>
-                      </div>
-                      <ul class="experience-list mb-3">
-                        <li>Completed comprehensive training in Salesforce development and core platform features</li>
-                        <li>Gained hands-on experience with Salesforce configuration, customization, and best practices</li>
-                        <li>Contributed to team projects while building foundational knowledge in enterprise software development</li>
-                      </ul>
-                      <div class="experience-tags">
-                        <span class="skill-tag-sm">Salesforce Core</span>
-                        <span class="skill-tag-sm">Configuration</span>
-                        <span class="skill-tag-sm">Development</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Projects -->
-        <section id="projects" class="section-projects">
-          <div class="container">
-            <div class="section-header text-center mb-5 fade-in-up">
-              <h2 class="section-title">Featured Projects</h2>
-              <div class="section-divider"></div>
-            </div>
-            <div class="row g-4">
-              <div class="col-md-6 fade-in-up">
-                <div class="project-card h-100" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="project-card-inner">
-                    <h3 class="project-title">Credstream</h3>
-                    <p class="project-description">Credential integrated edge-based watermarking and visible overlay for tracking pirates in OTT devices.</p>
-                    <div class="project-tags mb-4">
-                      <span class="skill-tag-sm">Python</span>
-                      <span class="skill-tag-sm">Flutter</span>
-                      <span class="skill-tag-sm">Flask</span>
-                    </div>
-                    <div class="project-links">
-                      <a href="https://github.com/SpaceCodr/Credstream" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View Code
-                      </a>
-                      <a href="https://drive.google.com/file/d/1HXv9QLOrxxxE3PhgvPEr6LGkwychx7GY/view?usp=sharing" target="_blank" class="project-link">
-                        <i class="fa-solid fa-play"></i> Watch Demo
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 fade-in-up">
-                <div class="project-card h-100" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="project-card-inner">
-                    <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-description">Responsive portfolio/personal website for Umer Bin Shah, hosted using GitHub pages.</p>
-                    <div class="project-tags mb-4">
-                      <span class="skill-tag-sm">HTML</span>
-                      <span class="skill-tag-sm">CSS</span>
-                      <span class="skill-tag-sm">JavaScript</span>
-                      <span class="skill-tag-sm">Bootstrap</span>
-                    </div>
-                    <div class="project-links">
-                      <a href="https://github.com/SpaceCodr/spacecodr.github.io" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View Code
-                      </a>
-                      <a href="https://spacecodr.github.io/" target="_blank" class="project-link">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Site
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 fade-in-up">
-                <div class="project-card h-100" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="project-card-inner">
-                    <h3 class="project-title">Trail</h3>
-                    <p class="project-description">Mobile application for time management involving customizable pomodoro timer, task organizer, time tracker and detailed report.</p>
-                    <div class="project-tags mb-4">
-                      <span class="skill-tag-sm">Flutter</span>
-                      <span class="skill-tag-sm">Hive</span>
-                    </div>
-                    <div class="project-links">
-                      <a href="https://github.com/SpaceCodr/Trail" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View Code
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 fade-in-up">
-                <div class="project-card h-100" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="project-card-inner">
-                    <h3 class="project-title">Mingle</h3>
-                    <p class="project-description">Application that allows users to post and accept projects of interest, making collaboration easier.</p>
-                    <div class="project-tags mb-4">
-                      <span class="skill-tag-sm">JavaFX</span>
-                      <span class="skill-tag-sm">Supabase</span>
-                    </div>
-                    <div class="project-links">
-                      <a href="https://github.com/niranjanneeru/Mingle" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View Code
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Certifications -->
-        <section id="certifications" class="section-certifications">
-          <div class="container">
-            <div class="section-header text-center mb-5 fade-in-up">
-              <h2 class="section-title">Certifications</h2>
-              <div class="section-divider"></div>
-            </div>
-            <div class="row g-4 justify-content-center">
-              <div class="col-md-3 col-sm-6 fade-in-up">
-                <div class="cert-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="cert-icon-wrapper">
-                    <img src="assets/cert-mulesoft-developer.png" alt="Salesforce MuleSoft Developer" class="cert-icon"/>
-                  </div>
-                  <h3 class="cert-title">Salesforce MuleSoft Developer</h3>
-                  <p class="cert-date">Nov 2025</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 fade-in-up">
-                <div class="cert-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="cert-icon-wrapper">
-                    <img src="assets/cert-pd1.png" alt="Salesforce Platform Developer I" class="cert-icon"/>
-                  </div>
-                  <h3 class="cert-title">Salesforce Platform Developer I</h3>
-                  <p class="cert-date">Jun 2025</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 fade-in-up">
-                <div class="cert-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="cert-icon-wrapper">
-                    <img src="assets/SF-Certified_AI-Specialist.png" alt="Salesforce AI Specialist" class="cert-icon"/>
-                  </div>
-                  <h3 class="cert-title">Salesforce AI Specialist</h3>
-                  <p class="cert-date">Dec 2024</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 fade-in-up">
-                <div class="cert-card" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-perspective="1000">
-                  <div class="cert-icon-wrapper">
-                    <img src="assets/SF-Certified_AI-Associate.png" alt="Salesforce AI Associate" class="cert-icon"/>
-                  </div>
-                  <h3 class="cert-title">Salesforce AI Associate</h3>
-                  <p class="cert-date">Nov 2024</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Contact -->
-        <section id="contact" class="section-contact">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="contact-content text-center fade-in-up">
-                  <h2 class="contact-title mb-4">Let's Connect</h2>
-                  <p class="contact-description mb-5">I'm currently looking for Software Engineering opportunities! If you know of any positions available, have any questions, or just want to say hi, please feel free to reach out.</p>
-                  <a href="mailto:umerbinshah2001@gmail.com" class="btn btn-contact" target="_blank">
-                    <i class="fas fa-envelope me-2"></i>Get In Touch
-                  </a>
-                  <div class="social-links mt-5">
-                    <a href="https://github.com/SpaceCodr" target="_blank" class="social-link" aria-label="GitHub">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/umerbinshah/" target="_blank" class="social-link" aria-label="LinkedIn">
-                      <i class="fab fa-linkedin"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="footer">
+      <!-- Philosophy Section (NEW) -->
+      <section id="philosophy" class="section-tall section-alt-bg">
         <div class="container">
-          <div class="footer-content">
-            <p class="footer-text">&copy; 2026 Umer Bin Shah. All Rights Reserved.</p>
+          <div class="container-narrow text-center">
+            <blockquote class="quote mb-xl">
+              "Start with curiosity, build with purpose, ship with confidence."
+            </blockquote>
+
+            <div class="grid-cards-3 mt-xl">
+              <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">🎯</div>
+                <h3 class="h4">User-First Thinking</h3>
+                <p class="body-sm text-slate">Solutions that solve real problems, not just technical exercises. Understanding the "why" before the "how."</p>
+              </div>
+              <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">🔧</div>
+                <h3 class="h4">Clean Architecture</h3>
+                <p class="body-sm text-slate">Code that others can understand, maintain, and build upon. Automated testing as a first-class citizen.</p>
+              </div>
+              <div class="card">
+                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">📈</div>
+                <h3 class="h4">Continuous Improvement</h3>
+                <p class="body-sm text-slate">Always learning, always evolving. Seeking feedback and acting on it. Shipping iteratively and improving constantly.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </div>
-    <script src="script/animations.js"></script>
-  </body>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section-spacing-lg">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Experience</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="container-narrow">
+            <div class="timeline">
+              <!-- Developer (Current) -->
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
+                </div>
+                <div class="experience-card card" data-tilt data-tilt-max="3">
+                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
+                    <div>
+                      <h3 class="h3">Developer</h3>
+                      <p class="experience-company">Tryzens Global</p>
+                    </div>
+                    <span class="experience-duration">Oct 2025 - Present</span>
+                  </div>
+                  <ul class="experience-list mb-md">
+                    <li>Architecting and implementing enterprise integration solutions using MuleSoft Anypoint Platform</li>
+                    <li>Developing scalable APIs and orchestrating complex data flows across multiple systems</li>
+                    <li>Leading technical design and delivery of integration solutions for client projects</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-sm">
+                    <span class="tag">MuleSoft</span>
+                    <span class="tag">Anypoint Platform</span>
+                    <span class="tag">DataWeave</span>
+                    <span class="tag">RAML</span>
+                    <span class="tag">API Design</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Associate Software Developer -->
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
+                </div>
+                <div class="experience-card card" data-tilt data-tilt-max="3">
+                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
+                    <div>
+                      <h3 class="h3">Associate Software Developer</h3>
+                      <p class="experience-company">Tryzens Global</p>
+                    </div>
+                    <span class="experience-duration">Apr 2024 - Oct 2025</span>
+                  </div>
+                  <ul class="experience-list mb-md">
+                    <li>Developed and maintained Salesforce solutions using Apex and Lightning Web Components</li>
+                    <li>Implemented custom Lightning components to enhance user experience and system functionality</li>
+                    <li>Collaborated in an agile team to deliver high-quality solutions meeting client requirements</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-sm">
+                    <span class="tag">Apex</span>
+                    <span class="tag">LWC</span>
+                    <span class="tag">SOQL</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Process Automation</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Software Engineer Trainee -->
+              <div class="timeline-item">
+                <div class="timeline-icon">
+                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
+                </div>
+                <div class="experience-card card" data-tilt data-tilt-max="3">
+                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
+                    <div>
+                      <h3 class="h3">Software Engineer Trainee</h3>
+                      <p class="experience-company">Tryzens Global</p>
+                    </div>
+                    <span class="experience-duration">Oct 2023 - Apr 2024</span>
+                  </div>
+                  <ul class="experience-list mb-md">
+                    <li>Completed comprehensive training in Salesforce development and core platform features</li>
+                    <li>Gained hands-on experience with Salesforce configuration, customization, and best practices</li>
+                    <li>Contributed to team projects while building foundational knowledge in enterprise software development</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-sm">
+                    <span class="tag">Salesforce Core</span>
+                    <span class="tag">Configuration</span>
+                    <span class="tag">Development</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section-spacing-lg section-alt-bg">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">Selected projects showcasing technical expertise and problem-solving</p>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="grid-cards-2">
+            <!-- Credstream - Featured -->
+            <div class="project-card card card-featured" data-tilt data-tilt-max="5">
+              <span class="project-category">Featured Project</span>
+              <h3 class="project-title">Credstream</h3>
+              <p class="project-description">
+                Edge-based watermarking solution for OTT platforms with integrated credential tracking and piracy prevention. Embeds unique watermarks in video content at the edge device level for real-time processing with zero visible quality impact.
+              </p>
+              <div class="flex flex-wrap gap-sm mb-md">
+                <span class="tag-primary tag">Python</span>
+                <span class="tag-primary tag">Flutter</span>
+                <span class="tag-primary tag">Flask</span>
+                <span class="tag">OpenCV</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SpaceCodr/Credstream" target="_blank" class="btn-secondary btn-sm">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://drive.google.com/file/d/1HXv9QLOrxxxE3PhgvPEr6LGkwychx7GY/view?usp=sharing" target="_blank" class="btn-primary btn-sm">
+                  <i class="fas fa-play"></i> Watch Demo
+                </a>
+              </div>
+            </div>
+
+            <!-- Portfolio Website -->
+            <div class="project-card card" data-tilt data-tilt-max="5">
+              <h3 class="project-title">Portfolio Website</h3>
+              <p class="project-description">
+                Modern portfolio featuring bold typography, smooth animations, and a sophisticated design system. Built with vanilla JavaScript, GSAP, and deployed on GitHub Pages.
+              </p>
+              <div class="flex flex-wrap gap-sm mb-md">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">GSAP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SpaceCodr/spacecodr.github.io" target="_blank" class="btn-ghost">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+                <a href="https://spacecodr.github.io/" target="_blank" class="btn-ghost">
+                  <i class="fas fa-external-link-alt"></i> Visit Site
+                </a>
+              </div>
+            </div>
+
+            <!-- Trail -->
+            <div class="project-card card" data-tilt data-tilt-max="5">
+              <h3 class="project-title">Trail</h3>
+              <p class="project-description">
+                Mobile application for time management with customizable Pomodoro timer, task organizer, time tracker, and detailed reporting for productivity insights.
+              </p>
+              <div class="flex flex-wrap gap-sm mb-md">
+                <span class="tag">Flutter</span>
+                <span class="tag">Hive</span>
+                <span class="tag">Dart</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SpaceCodr/Trail" target="_blank" class="btn-ghost">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+
+            <!-- Mingle -->
+            <div class="project-card card" data-tilt data-tilt-max="5">
+              <h3 class="project-title">Mingle</h3>
+              <p class="project-description">
+                Collaboration platform that allows users to post and accept projects of interest, making team formation and project collaboration easier for developers and creators.
+              </p>
+              <div class="flex flex-wrap gap-sm mb-md">
+                <span class="tag">JavaFX</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">Java</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/niranjanneeru/Mingle" target="_blank" class="btn-ghost">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="section-spacing-lg">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Certifications</h2>
+            <div class="section-divider"></div>
+          </div>
+
+          <div class="grid-cards-4">
+            <div class="cert-card card" data-tilt data-tilt-max="5">
+              <div class="cert-icon-wrapper">
+                <img src="assets/cert-mulesoft-developer.png" alt="Salesforce MuleSoft Developer" class="cert-icon">
+              </div>
+              <h3 class="cert-title">Salesforce MuleSoft Developer</h3>
+              <p class="cert-date">Nov 2025</p>
+            </div>
+
+            <div class="cert-card card" data-tilt data-tilt-max="5">
+              <div class="cert-icon-wrapper">
+                <img src="assets/cert-pd1.png" alt="Salesforce Platform Developer I" class="cert-icon">
+              </div>
+              <h3 class="cert-title">Salesforce Platform Developer I</h3>
+              <p class="cert-date">Jun 2025</p>
+            </div>
+
+            <div class="cert-card card" data-tilt data-tilt-max="5">
+              <div class="cert-icon-wrapper">
+                <img src="assets/SF-Certified_AI-Specialist.png" alt="Salesforce AI Specialist" class="cert-icon">
+              </div>
+              <h3 class="cert-title">Salesforce AI Specialist</h3>
+              <p class="cert-date">Dec 2024</p>
+            </div>
+
+            <div class="cert-card card" data-tilt data-tilt-max="5">
+              <div class="cert-icon-wrapper">
+                <img src="assets/SF-Certified_AI-Associate.png" alt="Salesforce AI Associate" class="cert-icon">
+              </div>
+              <h3 class="cert-title">Salesforce AI Associate</h3>
+              <p class="cert-date">Nov 2024</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section-spacing-lg">
+        <div class="container">
+          <div class="container-narrow text-center">
+            <h2 class="h1 mb-md">Let's Connect</h2>
+            <p class="lead mb-xl">
+              I'm currently looking for Software Engineering opportunities, especially in Salesforce, MuleSoft, or full-stack development. Have a project in mind or just want to chat? Let's talk.
+            </p>
+
+            <a href="mailto:umerbinshah2001@gmail.com" class="btn-primary btn-lg mb-xl">
+              <i class="fas fa-envelope"></i> umerbinshah2001@gmail.com
+            </a>
+
+            <div class="flex justify-center gap-lg mb-md">
+              <a href="https://github.com/SpaceCodr" target="_blank" class="btn-secondary" aria-label="GitHub">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/umerbinshah/" target="_blank" class="btn-secondary" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <p class="footer-text">&copy; 2026 Umer Bin Shah. All Rights Reserved.</p>
+          <p class="footer-tagline">Built with curiosity and care</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/particles.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
 </html>
