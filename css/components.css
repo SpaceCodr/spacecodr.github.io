@@ -531,22 +531,29 @@
   align-items: center;
   justify-content: center;
   background: var(--color-cream);
-  border: 2px solid var(--color-stone);
-  border-radius: 50%;
+  border: 3px solid var(--color-terracotta);
+  border-radius: 10px;
   z-index: 2;
   transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
 }
 
 .timeline-icon img {
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 75%;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: 4px;
 }
 
 .timeline-item:hover .timeline-icon {
+  border-color: var(--color-rust);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .timeline-icon {
+  background: rgb(224, 220, 216);
   border-color: var(--color-terracotta);
-  transform: scale(1.1);
 }
 
 /* ==========================================

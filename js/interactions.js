@@ -146,5 +146,4 @@
   // ==========================================
   console.log('%c✨ Umer Bin Shah - Portfolio', 'font-size: 16px; font-weight: 600; color: #C85D3F;');
   console.log('%cBuilt with care and attention to detail', 'font-size: 12px; color: #6B635B;');
-  console.log('%cDesign inspired by Stripe Press & B-EGG', 'font-size: 11px; color: #9B938C;');
 })();
