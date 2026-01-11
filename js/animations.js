@@ -8,11 +8,22 @@
   window.addEventListener('load', () => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
       console.warn('GSAP or ScrollTrigger not loaded');
+      // Ensure all elements are visible if GSAP doesn't load
+      document.querySelectorAll('.card, .timeline-item, .cert-card').forEach(el => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+      });
       return;
     }
 
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
+
+    // Set defaults for better visibility
+    gsap.defaults({
+      ease: 'power2.out',
+      duration: 0.8
+    });
 
     // ==========================================
     // HERO ANIMATIONS
@@ -66,7 +77,8 @@
         scrollTrigger: {
           trigger: header,
           start: 'top 80%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         }
       });
 
@@ -75,7 +87,8 @@
           opacity: 0,
           y: 20,
           duration: 0.6,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          immediateRender: false
         });
       }
 
@@ -84,7 +97,8 @@
           opacity: 0,
           y: 30,
           duration: 0.8,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          immediateRender: false
         }, '-=0.4');
       }
 
@@ -93,7 +107,8 @@
           opacity: 0,
           y: 20,
           duration: 0.6,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          immediateRender: false
         }, '-=0.5');
       }
 
@@ -101,7 +116,8 @@
         tl.from(divider, {
           scaleX: 0,
           duration: 0.8,
-          ease: 'power3.inOut'
+          ease: 'power3.inOut',
+          immediateRender: false
         }, '-=0.4');
       }
     });
@@ -114,12 +130,14 @@
         scrollTrigger: {
           trigger: card,
           start: 'top 85%',
-          toggleActions: 'play none none none'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         y: 50,
         duration: 0.8,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        immediateRender: false
       });
     });
 
@@ -131,13 +149,15 @@
         scrollTrigger: {
           trigger: item,
           start: 'top 85%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         x: -50,
         duration: 0.8,
         delay: index * 0.1,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        immediateRender: false
       });
     });
 
@@ -177,13 +197,15 @@
           scrollTrigger: {
             trigger: card,
             start: 'top 80%',
-            toggleActions: 'play none none none'
+            toggleActions: 'play none none none',
+            once: true
           },
           opacity: 0,
           scale: 0.9,
           duration: 0.4,
           stagger: 0.05,
-          ease: 'back.out(1.2)'
+          ease: 'back.out(1.2)',
+          immediateRender: false
         });
       }
     });
@@ -198,12 +220,14 @@
         scrollTrigger: {
           trigger: philosophyQuote,
           start: 'top 70%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         scale: 0.95,
         duration: 1.2,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        immediateRender: false
       });
     }
 
@@ -231,14 +255,16 @@
         scrollTrigger: {
           trigger: card,
           start: 'top 85%',
-          toggleActions: 'play none none none'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         y: 40,
         rotation: -5,
         duration: 0.8,
         delay: index * 0.1,
-        ease: 'back.out(1.2)'
+        ease: 'back.out(1.2)',
+        immediateRender: false
       });
     });
 
@@ -252,13 +278,15 @@
         scrollTrigger: {
           trigger: '#currently',
           start: 'top 80%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         y: 30,
         stagger: 0.1,
         duration: 0.6,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        immediateRender: false
       });
     }
 
@@ -272,13 +300,15 @@
         scrollTrigger: {
           trigger: '#contact',
           start: 'top 75%',
-          toggleActions: 'play none none reverse'
+          toggleActions: 'play none none none',
+          once: true
         },
         opacity: 0,
         y: 30,
         stagger: 0.15,
         duration: 0.8,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        immediateRender: false
       });
     }
 
@@ -307,6 +337,19 @@
       gsap.globalTimeline.timeScale(100);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     }
+
+    // ==========================================
+    // REFRESH SCROLLTRIGGER
+    // ==========================================
+    // Refresh after all animations are set up
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    // Also refresh on window resize
+    window.addEventListener('resize', () => {
+      ScrollTrigger.refresh();
+    });
 
     // ==========================================
     // PAUSE ANIMATIONS WHEN TAB NOT VISIBLE
