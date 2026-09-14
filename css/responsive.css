@@ -41,9 +41,6 @@
     padding: var(--space-4xl) 0;
   }
 
-  .hero-section {
-    min-height: 90vh;
-  }
 }
 
 /* ==========================================
@@ -55,12 +52,6 @@
   .container-grid {
     max-width: 768px;
     padding: 0 var(--space-md);
-  }
-
-  /* Typography adjustments */
-  :root {
-    --text-display-xl: clamp(3.5rem, 8vw, 6rem);
-    --text-display-lg: clamp(2.5rem, 6vw, 4rem);
   }
 
   /* Section spacing */
@@ -78,32 +69,12 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Hero adjustments */
-  .hero-section {
-    min-height: 80vh;
-  }
-
   /* Button adjustments */
   .btn-primary,
   .btn-secondary {
     padding: 0.875rem 2rem;
   }
 
-  /* Timeline adjustments */
-  .timeline {
-    padding-left: 20px;
-  }
-
-  .timeline-icon {
-    width: 40px;
-    height: 40px;
-    left: -31px;
-  }
-
-  /* Stats grid */
-  .stats-grid {
-    gap: var(--space-lg);
-  }
 }
 
 /* ==========================================
@@ -139,16 +110,9 @@
     --space-5xl: 6rem;
   }
 
-  /* Typography mobile scaling */
-  :root {
-    --text-display-xl: clamp(2.5rem, 10vw, 4rem);
-    --text-display-lg: clamp(2rem, 8vw, 3.5rem);
-    --text-display-md: clamp(1.75rem, 6vw, 2.5rem);
-  }
-
   /* Navbar mobile */
   .navbar {
-    height: 60px;
+    height: 56px;
   }
 
   .navbar-content {
@@ -156,26 +120,14 @@
   }
 
   .navbar-brand {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
   }
 
-  /* Hero mobile */
+  /* Hero mobile - 100vh is unreliable with mobile browser chrome, and the
+     headline no longer needs a full screen at the compact display scale. */
   .hero-section {
-    min-height: auto;
-    padding: var(--space-4xl) var(--space-md);
-    padding-top: calc(60px + var(--space-3xl));
-  }
-
-  .hero-meta {
-    margin-top: var(--space-lg);
-  }
-
-  .hero-name {
-    font-size: var(--text-h4);
-  }
-
-  .hero-role {
-    font-size: var(--text-body);
+    min-height: 86vh;
+    padding-top: 56px;
   }
 
   /* Section adjustments */
@@ -208,10 +160,6 @@
   }
 
   .project-card,
-  .experience-card,
-  .cert-card {
-    padding: var(--space-md);
-  }
 
   /* Buttons mobile */
   .btn-primary,
@@ -224,28 +172,6 @@
 
   .btn-ghost {
     width: auto;
-  }
-
-  /* Timeline mobile */
-  .timeline {
-    padding-left: 15px;
-  }
-
-  .timeline-item {
-    padding-left: var(--space-md);
-  }
-
-  .timeline-icon {
-    width: 36px;
-    height: 36px;
-    left: -26px;
-  }
-
-  /* Stats grid mobile - keep 2 columns but with smaller gap */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
-    max-width: 100%;
   }
 
   /* Footer mobile */
@@ -266,7 +192,7 @@
 
   /* Loading screen mobile */
   .loading-logo {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   /* Theme toggle mobile */
@@ -284,11 +210,6 @@
   .container,
   .container-grid {
     padding: 0 var(--space-sm);
-  }
-
-  /* Even smaller typography */
-  :root {
-    --text-display-xl: clamp(2rem, 10vw, 3.5rem);
   }
 
   /* Tighter spacing */
@@ -314,20 +235,7 @@
   /* Cards tighter padding */
   .card,
   .project-card,
-  .experience-card,
-  .cert-card {
-    padding: var(--space-sm);
-  }
 
-  /* Stats smaller */
-  .stat-number {
-    font-size: var(--text-h2);
-  }
-
-  /* Keep stats grid as 2 columns even on small mobile */
-  .stats-grid {
-    gap: var(--space-sm);
-  }
 }
 
 /* ==========================================
@@ -335,17 +243,11 @@
    ========================================== */
 @media (max-width: 375px) {
   :root {
-    --text-display-xl: clamp(1.75rem, 10vw, 3rem);
-    --text-h1: clamp(1.5rem, 5vw, 2.5rem);
+    --text-display-xl: clamp(1.75rem, 8vw, 2.25rem);
   }
 
   .navbar-brand {
     font-size: 1rem;
-  }
-
-  .hero-section {
-    padding: var(--space-3xl) var(--space-sm);
-    padding-top: calc(60px + var(--space-2xl));
   }
 
   .section-spacing-lg {
@@ -357,12 +259,6 @@
    9. LANDSCAPE MOBILE
    ========================================== */
 @media (max-height: 600px) and (orientation: landscape) {
-  .hero-section {
-    min-height: auto;
-    padding: var(--space-2xl) var(--space-md);
-    padding-top: calc(60px + var(--space-lg));
-  }
-
   .section-full-height {
     min-height: auto;
     padding: var(--space-xl) 0;
@@ -420,7 +316,6 @@
   .mobile-menu-toggle,
   .theme-toggle,
   .scroll-progress-container,
-  .scroll-indicator,
   .particles-canvas,
   .gradient-bg,
   .loading-screen,
@@ -446,11 +341,15 @@
     page-break-inside: avoid;
   }
 
+  .hero-arch,
+  .card::before {
+    display: none;
+  }
+
   /* Remove shadows and transparency */
   .card,
   .navbar,
-  .experience-card,
-  .cert-card {
+  .cred-card {
     box-shadow: none;
     background: white;
     backdrop-filter: none;
@@ -475,7 +374,12 @@
   :root {
     --color-charcoal: #000000;
     --color-cream: #FFFFFF;
-    --color-terracotta: #AA3300;
+    --color-slate: #241046;
+    --brand-indigo: #3B1E7A;
+    --brand-lavender: #3B1E7A;
+    --color-stone: #3B1E7A;
+    --color-stone-strong: #3B1E7A;
+    --color-on-brand: #FFFFFF;
   }
 
   .card {
@@ -494,20 +398,35 @@
 @media (prefers-color-scheme: dark) {
   /* Only apply if user hasn't explicitly set a preference */
   html:not([data-theme]) {
-    /* Apply dark mode variables */
-    --color-cream: #1C1916;
-    --color-sand: #252220;
-    --color-stone: #3A3733;
+    /* Mirrors [data-theme="dark"] in main.css - keep the two in step */
+    --color-cream: #14082E;
+    --color-sand: #1B0F3E;
+    --color-surface-soft: #1A0F3B;
+    --color-surface: #1E1145;
+    --color-surface-strong: #261854;
 
-    --color-charcoal: #F5F1E8;
-    --color-graphite: #E5DFD4;
-    --color-slate: #C4BFB5;
-    --color-ash: #9B938C;
+    --color-stone: rgba(237, 230, 250, 0.14);
+    --color-stone-strong: rgba(237, 230, 250, 0.26);
 
-    --color-terracotta: #E87A5D;
-    --color-rust: #D96847;
-    --color-copper: #D99677;
-    --color-sage: #A4B88C;
-    --color-indigo: #8599D4;
+    --color-charcoal: #EDE6FA;
+    --color-graphite: #DCCFF5;
+    --color-slate: #B9A8D6;
+    --color-ash: #9385B6;
+
+    --brand-indigo: #A78BE8;
+    --brand-indigo-deep: #CFC0F2;
+    --brand-lavender: #CFC0F2;
+    --brand-lavender-lt: #E4DAF7;
+    --brand-peach: #F0A184;
+    --brand-sky: #9BC0EA;
+    --color-on-brand: #14082E;
+
+    --glass-navbar: rgba(20, 8, 46, 0.78);
+    --glass-navbar-solid: rgba(20, 8, 46, 0.98);
+
+    --gradient-emphasis: linear-gradient(110deg, #CFC0F2 0%, #B9A3E8 38%, #F0A184 100%);
+    --gradient-hero: linear-gradient(165deg, #14082E 0%, #1E1145 45%, #2A1659 100%);
+    --gradient-subtle: linear-gradient(180deg, rgba(185, 163, 232, 0.08) 0%, transparent 100%);
   }
+
 }

@@ -60,11 +60,12 @@
     function animateGradient() {
       gradientAngle += 0.1;
 
+      // Lavender -> peach -> sky, the iridescent sweep at very low opacity
       gradientBg.style.background = `
         linear-gradient(${gradientAngle}deg,
-          rgba(200, 93, 63, 0.08) 0%,
-          rgba(184, 122, 92, 0.06) 50%,
-          rgba(139, 154, 124, 0.04) 100%)
+          rgba(185, 163, 232, 0.10) 0%,
+          rgba(224, 135, 104, 0.06) 50%,
+          rgba(127, 168, 220, 0.05) 100%)
       `;
 
       requestAnimationFrame(animateGradient);
@@ -78,6 +79,14 @@
         // Animation continues but we could pause if needed
       }
     });
+  }
+
+  // ==========================================
+  // FOOTER YEAR
+  // ==========================================
+  const footerYear = document.getElementById('footer-year');
+  if (footerYear) {
+    footerYear.textContent = String(new Date().getFullYear());
   }
 
   // ==========================================

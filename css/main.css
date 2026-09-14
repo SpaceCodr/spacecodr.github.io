@@ -1,37 +1,68 @@
 /* ==========================================
-   PORTFOLIO REBUILD - MAIN STYLES
-   Stripe Press + B-EGG Hybrid Design
+   PORTFOLIO - MAIN STYLES
+   Riyadh Air inspired: lavender mist, deep indigo, sunset peach
    ========================================== */
 
 /* ==========================================
    1. CSS VARIABLES - DESIGN SYSTEM
    ========================================== */
 :root {
-  /* Base Colors - Warm Neutrals */
-  --color-cream: #FAF8F5;
-  --color-sand: #F5F1E8;
-  --color-stone: #E5DFD4;
+  /* ---- Brand: Riyadh Air ----
+     Lavender is the primary brand hue; indigo and sunset peach
+     expand it. Peach is an accent only - never body text on light. */
+  --brand-indigo:       #5B3BA8;
+  --brand-indigo-deep:  #2E1065;
+  --brand-lavender:     #B9A3E8;
+  --brand-lavender-lt:  #E4DAF7;
+  --brand-peach:        #E08768;
+  --brand-sky:          #7FA8DC;
 
-  /* Text Colors */
-  --color-charcoal: #2C2823;
-  --color-graphite: #4A4540;
-  --color-slate: #6B635B;
-  --color-ash: #9B938C;
+  /* Ink that sits on a filled brand surface (primary button, selection).
+     Declared per palette so theme-scoped button overrides aren't needed -
+     those only matched [data-theme], and left the OS-preference path with
+     white text on a light lavender button. */
+  --color-on-brand: #FFFFFF;
 
-  /* Accent Colors - Professional Warmth */
-  --color-terracotta: #C85D3F;
-  --color-rust: #A84B33;
-  --color-copper: #B87A5C;
-  --color-sage: #8B9A7C;
+  /* Surfaces - Lavender Mist, as an elevation ladder.
+     Panels sit on each other at readable depths instead of every card
+     sharing one flat white. */
+  --color-cream: #F7F4FC;          /* page ground */
+  --color-sand: #EFE9FA;           /* alt band */
+  --color-surface-soft: #F2ECFB;   /* recessed */
+  --color-surface: #FBF8FE;        /* card */
+  --color-surface-strong: #FFFFFF; /* raised / featured */
 
-  /* Tech Accent - Modern Contrast */
-  --color-indigo: #5B6FAE;
-  --color-indigo-light: #7A8EC4;
+  /* Hairlines are alpha, so they read correctly on any of the above */
+  --color-stone: rgba(36, 16, 70, 0.12);
+  --color-stone-strong: rgba(36, 16, 70, 0.22);
+
+  /* Ink - Deep Indigo */
+  --color-charcoal: #241046;
+  --color-graphite: #3D2270;
+  --color-slate: #6B5A94;
+  --color-ash: #6E6684;   /* grey-violet: recedes by saturation, not by
+                            lightness, so it still clears AA at caption size */
+
+  /* Legacy aliases - the other five stylesheets still address these names */
+  --color-terracotta: var(--brand-indigo);
+  --color-rust: var(--brand-indigo-deep);
+  --color-copper: var(--brand-peach);
+  --color-sage: var(--brand-sky);
+  --color-indigo: var(--brand-lavender);
+  --color-indigo-light: var(--brand-lavender-lt);
+
+  /* Translucent surface for the navbar (the only blurred element) */
+  --glass-navbar: rgba(247, 244, 252, 0.78);
+  --glass-navbar-solid: rgba(247, 244, 252, 0.98);
 
   /* Gradients */
-  --gradient-warm: linear-gradient(135deg, #C85D3F 0%, #B87A5C 100%);
-  --gradient-hero: linear-gradient(160deg, #FAF8F5 0%, #F5E8DC 40%, #E8D5C4 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(200, 93, 63, 0.08) 0%, transparent 100%);
+  --gradient-iridescent: linear-gradient(110deg, #B9A3E8 0%, #C9A8E0 28%, #E08768 58%, #7FA8DC 100%);
+  --gradient-warm: var(--gradient-iridescent);
+  /* Emphasis ink for display type. The full iridescent sweep is too light to
+     carry a word on lavender mist, so this leans on the indigo end. */
+  --gradient-emphasis: linear-gradient(110deg, #5B3BA8 0%, #8E6BD4 38%, #C77F63 100%);
+  --gradient-hero: linear-gradient(165deg, #F7F4FC 0%, #EFE9FA 45%, #E4DAF7 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(91, 59, 168, 0.06) 0%, transparent 100%);
 
   /* Spacing Scale */
   --space-xs: 0.5rem;    /* 8px */
@@ -40,51 +71,67 @@
   --space-lg: 2rem;      /* 32px */
   --space-xl: 3rem;      /* 48px */
   --space-2xl: 4rem;     /* 64px */
-  --space-3xl: 6rem;     /* 96px */
-  --space-4xl: 8rem;     /* 128px */
-  --space-5xl: 12rem;    /* 192px */
+  --space-3xl: 4rem;     /* 64px */
+  --space-4xl: 5.5rem;   /* 88px */
+  --space-5xl: 7rem;     /* 112px */
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px 0 rgba(44, 40, 35, 0.08), 0 1px 2px -1px rgba(44, 40, 35, 0.08);
-  --shadow-md: 0 4px 6px -1px rgba(44, 40, 35, 0.1), 0 2px 4px -2px rgba(44, 40, 35, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(44, 40, 35, 0.1), 0 4px 6px -4px rgba(44, 40, 35, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(44, 40, 35, 0.12), 0 8px 10px -6px rgba(44, 40, 35, 0.1);
+  /* Shadows - indigo tinted */
+  --shadow-sm: 0 1px 3px 0 rgba(46, 16, 101, 0.07), 0 1px 2px -1px rgba(46, 16, 101, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(46, 16, 101, 0.09), 0 2px 4px -2px rgba(46, 16, 101, 0.07);
+  --shadow-lg: 0 10px 15px -3px rgba(46, 16, 101, 0.10), 0 4px 6px -4px rgba(46, 16, 101, 0.08);
+  --shadow-xl: 0 20px 32px -8px rgba(46, 16, 101, 0.14), 0 8px 10px -6px rgba(46, 16, 101, 0.08);
 
   /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-full: 50px;
+  /* Border Radius - tight and app-like rather than soft-poster */
+  --radius-sm: 4px;
+  --radius-md: 8px;    /* card */
+  --radius-lg: 14px;   /* panel */
+  --radius-full: 999px;
+
+  /* Window motif - derived from the aircraft-window "R" */
+  --radius-arch: 50% 50% var(--radius-lg) var(--radius-lg) / 34% 34% var(--radius-lg) var(--radius-lg);
+  --radius-window: 42% 42% 18% 18% / 30% 30% 12% 12%;
 }
 
-/* Dark Mode Variables */
+/* Dark Mode Variables - Indigo Night */
 [data-theme="dark"] {
-  --color-cream: #1C1916;
-  --color-sand: #252220;
-  --color-stone: #3A3733;
+  --color-cream: #14082E;
+  --color-sand: #1B0F3E;
+  --color-surface-soft: #1A0F3B;
+  --color-surface: #1E1145;
+  --color-surface-strong: #261854;
 
-  --color-charcoal: #F5F1E8;
-  --color-graphite: #E5DFD4;
-  --color-slate: #C4BFB5;
-  --color-ash: #9B938C;
+  --color-stone: rgba(237, 230, 250, 0.14);
+  --color-stone-strong: rgba(237, 230, 250, 0.26);
 
-  /* Brighter accents in dark mode */
-  --color-terracotta: #E87A5D;
-  --color-rust: #D96847;
-  --color-copper: #D99677;
-  --color-sage: #A4B88C;
-  --color-indigo: #8599D4;
+  --color-charcoal: #EDE6FA;
+  --color-graphite: #DCCFF5;
+  --color-slate: #B9A8D6;
+  --color-ash: #9385B6;
 
-  --gradient-hero: linear-gradient(160deg, #1C1916 0%, #2A2320 40%, #3A312A 100%);
+  /* Accents lift in dark so they stay legible on indigo */
+  --brand-indigo: #A78BE8;
+  --brand-indigo-deep: #CFC0F2;
+  --brand-lavender: #CFC0F2;
+  --brand-lavender-lt: #E4DAF7;
+  --brand-peach: #F0A184;
+  --brand-sky: #9BC0EA;
+  --color-on-brand: #14082E;
 
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --glass-navbar: rgba(20, 8, 46, 0.78);
+  --glass-navbar-solid: rgba(20, 8, 46, 0.98);
+
+  --gradient-emphasis: linear-gradient(110deg, #CFC0F2 0%, #B9A3E8 38%, #F0A184 100%);
+  --gradient-hero: linear-gradient(165deg, #14082E 0%, #1E1145 45%, #2A1659 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(185, 163, 232, 0.08) 0%, transparent 100%);
+
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 32px -8px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.45);
 }
 
 /* ==========================================
@@ -107,7 +154,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   background: var(--color-cream);
   color: var(--color-charcoal);
   line-height: 1.6;
@@ -125,13 +172,13 @@ body {
    3. SELECTION & SCROLLBAR
    ========================================== */
 ::selection {
-  background: var(--color-terracotta);
-  color: var(--color-cream);
+  background: var(--brand-indigo);
+  color: var(--color-on-brand);
 }
 
 ::-moz-selection {
-  background: var(--color-terracotta);
-  color: var(--color-cream);
+  background: var(--brand-indigo);
+  color: var(--color-on-brand);
 }
 
 ::-webkit-scrollbar {
@@ -148,7 +195,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-rust);
+  background: var(--brand-indigo);
 }
 
 /* ==========================================
@@ -169,7 +216,7 @@ body {
 
 /* Focus visible styles */
 *:focus-visible {
-  outline: 3px solid var(--color-terracotta);
+  outline: 2px solid var(--brand-indigo);
   outline-offset: 4px;
   border-radius: var(--radius-sm);
 }
@@ -207,9 +254,10 @@ body {
 }
 
 .loading-logo {
-  font-family: 'Crimson Pro', serif;
-  font-size: 4rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-wide);
   background: var(--gradient-warm);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -234,9 +282,10 @@ body {
 }
 
 .loading-counter {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.14em;
   color: var(--color-slate);
 }
 
@@ -251,7 +300,7 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 .gradient-bg {

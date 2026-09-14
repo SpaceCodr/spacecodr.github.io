@@ -147,3 +147,54 @@
   console.log('%c✨ Umer Bin Shah - Portfolio', 'font-size: 16px; font-weight: 600; color: #C85D3F;');
   console.log('%cBuilt with care and attention to detail', 'font-size: 12px; color: #6B635B;');
 })();
+
+// ==========================================
+// HERO ROLE ROTATOR
+// ==========================================
+(function () {
+  const rotator = document.querySelector('.role-rotator');
+  if (!rotator) return;
+
+  const roles = (rotator.dataset.roles || '').split('|').filter(Boolean);
+  const slot = rotator.querySelector('.role-rotator-text');
+  if (!slot || roles.length < 2) return;
+
+  // Reserve the width of the longest role before the first swap, so the line
+  // around it never reflows mid-cycle.
+  const probe = document.createElement('span');
+  probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;';
+  probe.className = 'role-rotator-text';
+  rotator.appendChild(probe);
+  let widest = 0;
+  roles.forEach(r => {
+    probe.textContent = r;
+    widest = Math.max(widest, probe.offsetWidth);
+  });
+  rotator.removeChild(probe);
+  if (widest) rotator.style.minWidth = widest + 'px';
+
+  // A cycling headline is motion for its own sake - hold the first role.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let i = 0;
+  let timer = setInterval(swap, 2600);
+
+  function swap() {
+    slot.classList.add('is-out');
+    setTimeout(() => {
+      i = (i + 1) % roles.length;
+      slot.textContent = roles[i];
+      slot.classList.remove('is-out');
+    }, 320);
+  }
+
+  // Don't burn frames while the tab is hidden.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(timer);
+    } else {
+      clearInterval(timer);
+      timer = setInterval(swap, 2600);
+    }
+  });
+})();

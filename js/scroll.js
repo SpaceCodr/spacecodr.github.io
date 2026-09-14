@@ -88,21 +88,6 @@
     });
   }
 
-  // Scroll indicator fade out
-  const scrollIndicator = document.querySelector('.scroll-indicator');
-
-  if (scrollIndicator) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        scrollIndicator.style.opacity = '0';
-        scrollIndicator.style.pointerEvents = 'none';
-      } else {
-        scrollIndicator.style.opacity = '1';
-        scrollIndicator.style.pointerEvents = 'all';
-      }
-    });
-  }
-
   // Disable smooth scroll if reduced motion is preferred
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     if (lenis) {
