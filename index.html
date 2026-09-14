@@ -3,13 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Umer Bin Shah - Software Engineer specializing in Salesforce, MuleSoft, and enterprise integration. 4x Salesforce Certified developer building practical solutions that drive business value.">
-  <meta name="keywords" content="Umer Bin Shah, Software Engineer, Salesforce Developer, MuleSoft Developer, Apex, Lightning Web Components, Integration">
+  <meta name="description" content="Umer Bin Shah Portfolio">
+  <meta name="keywords" content="Umer Bin Shah, MuleSoft Developer, Salesforce Developer, Integration Developer, API-led Connectivity, DataWeave, Anypoint Platform, NewStore OMS, Agentforce, Apex, Lightning Web Components">
   <meta name="author" content="Umer Bin Shah">
-  <title>Umer Bin Shah - Software Engineer</title>
+  <link rel="canonical" href="https://spacecodr.github.io/">
+
+  <title>Umer Bin Shah - Portfolio</title>
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spacecodr.github.io/">
+  <meta property="og:title" content="Umer Bin Shah - MuleSoft &amp; Salesforce Integration Developer">
+  <meta property="og:description" content="Building practical software solutions that drive business value. API-led connectivity, DataWeave, and Salesforce delivery at Tryzens Global.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Umer Bin Shah - MuleSoft &amp; Salesforce Integration Developer">
+  <meta name="twitter:description" content="Building practical software solutions that drive business value. API-led connectivity, DataWeave, and Salesforce delivery at Tryzens Global.">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <!--
+    Apply the saved theme before first paint. Without this, theme.js runs at
+    the bottom of <body> and a saved dark theme flashes light on every load.
+    No stored choice means no attribute, which lets the prefers-color-scheme
+    rule in responsive.css take over.
+  -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) { /* private mode - fall through to the OS preference */ }
+    })();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
@@ -69,10 +102,12 @@
 
         <ul class="navbar-menu">
           <li><a href="#about" class="navbar-link">About</a></li>
-          <li><a href="#philosophy" class="navbar-link">Philosophy</a></li>
+          <li><a href="#philosophy" class="navbar-link">Approach</a></li>
           <li><a href="#experience" class="navbar-link">Experience</a></li>
+          <li><a href="#education" class="navbar-link">Education</a></li>
           <li><a href="#projects" class="navbar-link">Work</a></li>
-          <li><a href="#certifications" class="navbar-link">Certifications</a></li>
+          <li><a href="#skills" class="navbar-link">Skills</a></li>
+          <li><a href="#credentials" class="navbar-link">Credentials</a></li>
           <li><a href="#contact" class="navbar-link">Contact</a></li>
           <li>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
@@ -87,18 +122,21 @@
     <main id="main-content">
 
       <!-- Hero Section -->
-      <section id="home" class="hero-section section-full-height">
+      <section id="home" class="hero-section" aria-labelledby="hero-title">
         <div class="hero-gradient gradient-animated"></div>
+        <div class="hero-arch" aria-hidden="true"></div>
         <div class="hero-content">
-          <h1 class="hero-display gradient-text-animated">
+          <h1 class="hero-display" id="hero-title">
             <span class="hero-line">Building practical</span>
-            <span class="hero-line">software solutions</span>
-            <span class="hero-line">that drive real</span>
-            <span class="hero-line">business value</span>
+            <span class="hero-line"><span class="text-iridescent gradient-text-animated">software solutions</span></span>
+            <span class="hero-line">that drive business value</span>
           </h1>
           <div class="hero-meta">
             <p class="hero-name">Umer Bin Shah</p>
-            <p class="hero-role">Software Developer | Integration Specialist | MuleSoft | Salesforce</p>
+            <p class="hero-role">
+              <span class="role-rotator" data-roles="MuleSoft Developer|Salesforce Developer|Integration Lead"><span class="role-rotator-text">MuleSoft Developer</span></span>
+              <span class="hero-role-at">at Tryzens Global</span>
+            </p>
           </div>
           <a href="#about" class="scroll-indicator">
             <span>Scroll to explore</span>
@@ -110,37 +148,22 @@
       <!-- About Section -->
       <section id="about" class="section-spacing-lg">
         <div class="container">
-          <div class="section-header">
-            <span class="section-number">01</span>
-            <h2 class="section-title">About Me</h2>
-            <div class="section-divider"></div>
-          </div>
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">About</h2>
+              <span class="section-number">01</span>
+            </div>
 
-          <div class="container-narrow">
-            <p class="lead text-center">
+            <p class="about-copy">
               I'm a Software Engineer specializing in building practical, end-to-end solutions that automate tasks, integrate APIs, and enhance user experience. With expertise in Salesforce and MuleSoft, I create scalable solutions that drive business value.
             </p>
 
-            <div class="stats-grid">
-              <div class="stat">
-                <span class="stat-number">2+</span>
-                <span class="stat-label">Years Experience</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">4</span>
-                <span class="stat-label">Certifications</span>
-              </div>
-            </div>
-
-            <p class="body text-center mt-xl">
-              Currently at Tryzens, I architect enterprise integration solutions using MuleSoft Anypoint Platform and build custom Salesforce applications with Apex and Lightning Web Components. My work focuses on connecting systems, automating workflows, and delivering solutions that make a measurable impact.
+            <p class="about-copy">
+              I'm ambitious, relentlessly curious, and always looking for the next hard problem to learn from.
             </p>
 
-            <p class="body text-center">
-              I'm passionate about clean code, thoughtful design, and continuous learning. When I step away from the keyboard, you'll find me by the water with a fishing rod or at home with my family.
-            </p>
 
-            <div class="flex justify-center gap-md mt-xl" style="flex-wrap: wrap;">
+            <div class="cta-row">
               <a href="https://docs.google.com/document/d/14MJjuZJEyXE1Sc8dwHosaT6aDSgxutPl-ju8fuGJ-Ss/edit?usp=sharing" target="_blank" class="btn-primary">
                 <i class="fas fa-file-alt"></i> View Resume
               </a>
@@ -152,31 +175,38 @@
         </div>
       </section>
 
-      <!-- Philosophy Section (NEW) -->
-      <section id="philosophy" class="section-tall section-alt-bg">
+      <!-- Approach Section -->
+      <section id="philosophy" class="section-spacing-lg">
         <div class="container">
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Approach</h2>
+              <span class="section-number">02</span>
+            </div>
+
           <div class="container-narrow text-center">
             <blockquote class="quote mb-xl">
               "Start with curiosity, build with purpose, ship with confidence."
             </blockquote>
 
             <div class="grid-cards-3 mt-xl">
-              <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">🎯</div>
+              <div class="card value-card">
+                <div class="value-icon"><i class="fas fa-bullseye"></i></div>
                 <h3 class="h4">User-First Thinking</h3>
                 <p class="body-sm text-slate">Solutions that solve real problems, not just technical exercises. Understanding the "why" before the "how."</p>
               </div>
-              <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">🔧</div>
+              <div class="card value-card">
+                <div class="value-icon"><i class="fas fa-wrench"></i></div>
                 <h3 class="h4">Clean Architecture</h3>
                 <p class="body-sm text-slate">Code that others can understand, maintain, and build upon. Automated testing as a first-class citizen.</p>
               </div>
-              <div class="card">
-                <div style="font-size: 2.5rem; margin-bottom: var(--space-md);">📈</div>
+              <div class="card value-card">
+                <div class="value-icon"><i class="fas fa-chart-line"></i></div>
                 <h3 class="h4">Continuous Improvement</h3>
                 <p class="body-sm text-slate">Always learning, always evolving. Seeking feedback and acting on it. Shipping iteratively and improving constantly.</p>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>
@@ -184,159 +214,146 @@
       <!-- Experience Section -->
       <section id="experience" class="section-spacing-lg">
         <div class="container">
-          <div class="section-header">
-            <span class="section-number">02</span>
-            <h2 class="section-title">Experience</h2>
-            <div class="section-divider"></div>
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Experience</h2>
+              <span class="section-number">03</span>
+            </div>
+
+            <div class="exp-list">
+              <section class="exp-group">
+                <div class="exp-group-mark">
+                  <img src="assets/tryzens_logo.png" alt="Tryzens Global logo" width="48" height="48" loading="lazy">
+                </div>
+
+                <div class="exp-group-content">
+                  <h3 class="exp-org">Tryzens Global</h3>
+
+                  <div class="exp-roles" data-multiple="true">
+                    <article class="exp-role">
+                      <div class="exp-role-body">
+                        <h4 class="exp-role-title">Developer</h4>
+                        <p class="exp-role-dates">Oct 2025 &ndash; Present</p>
+                      </div>
+                    </article>
+
+                    <article class="exp-role">
+                      <div class="exp-role-body">
+                        <h4 class="exp-role-title">Associate Software Developer</h4>
+                        <p class="exp-role-dates">Apr 2024 &ndash; Oct 2025</p>
+                      </div>
+                    </article>
+
+                    <article class="exp-role">
+                      <div class="exp-role-body">
+                        <h4 class="exp-role-title">Software Engineer Trainee</h4>
+                        <p class="exp-role-dates">Oct 2023 &ndash; Apr 2024</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="container-narrow">
-            <div class="timeline">
-              <!-- Developer (Current) -->
-              <div class="timeline-item">
-                <div class="timeline-icon">
-                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
-                </div>
-                <div class="experience-card card" data-tilt data-tilt-max="3">
-                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
-                    <div>
-                      <h3 class="h3">Developer</h3>
-                      <p class="experience-company">Tryzens Global</p>
-                    </div>
-                    <span class="experience-duration">Oct 2025 - Present</span>
-                  </div>
-                  <ul class="experience-list mb-md">
-                    <li>Architecting and implementing enterprise integration solutions using MuleSoft Anypoint Platform</li>
-                    <li>Developing scalable APIs and orchestrating complex data flows across multiple systems</li>
-                    <li>Leading technical design and delivery of integration solutions for client projects</li>
-                  </ul>
-                  <div class="flex flex-wrap gap-sm">
-                    <span class="tag">Anypoint Platform</span>
-                    <span class="tag">MuleSoft CloudHub</span>
-                    <span class="tag">Enterprise Integration</span>
-                    <span class="tag">API Architecture</span>
-                  </div>
-                </div>
-              </div>
+      <!-- Education Section -->
+      <section id="education" class="section-spacing-lg">
+        <div class="container">
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Education</h2>
+              <span class="section-number">04</span>
+            </div>
 
-              <!-- Associate Software Developer -->
-              <div class="timeline-item">
-                <div class="timeline-icon">
-                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
+            <div class="edu-list">
+              <article class="edu-item">
+                <div class="edu-item-mark">
+                  <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                 </div>
-                <div class="experience-card card" data-tilt data-tilt-max="3">
-                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
-                    <div>
-                      <h3 class="h3">Associate Software Developer</h3>
-                      <p class="experience-company">Tryzens Global</p>
-                    </div>
-                    <span class="experience-duration">Apr 2024 - Oct 2025</span>
-                  </div>
-                  <ul class="experience-list mb-md">
-                    <li>Develop integration solutions using MuleSoft Anypoint Platform for enterprise systems</li>
-                    <li>Implemented custom Apex and Lightning components to enhance user experience and system functionality</li>
-                    <li>Collaborated in an agile team to deliver high-quality solutions meeting client requirements</li>
-                  </ul>
-                  <div class="flex flex-wrap gap-sm">
-                    <span class="tag">MuleSoft</span>
-                    <span class="tag">DataWeave</span>
-                    <span class="tag">RAML</span>
-                    <span class="tag">Apex</span>
-                    <span class="tag">Lightning Web Components</span>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Software Engineer Trainee -->
-              <div class="timeline-item">
-                <div class="timeline-icon">
-                  <img src="assets/tryzens_logo.png" alt="Tryzens Global">
-                </div>
-                <div class="experience-card card" data-tilt data-tilt-max="3">
-                  <div class="flex justify-between items-start mb-md" style="flex-wrap: wrap; gap: var(--space-sm);">
-                    <div>
-                      <h3 class="h3">Software Engineer Trainee</h3>
-                      <p class="experience-company">Tryzens Global</p>
-                    </div>
-                    <span class="experience-duration">Oct 2023 - Apr 2024</span>
-                  </div>
-                  <ul class="experience-list mb-md">
-                    <li>Completed comprehensive training in Salesforce development and core platform features</li>
-                    <li>Gained hands-on experience with Salesforce configuration, customization, and best practices</li>
-                    <li>Contributed to team projects while building foundational knowledge in enterprise software development</li>
+                <div class="edu-item-content">
+                  <h3 class="edu-institution">TKM College of Engineering</h3>
+                  <p class="edu-program">B.Tech, Computer Science and Engineering</p>
+                  <p class="edu-affiliation">APJ Abdul Kalam Technological University</p>
+                  <p class="edu-dates">2019 &ndash; 2023</p>
+
+                  <ul class="edu-details" aria-label="Education details">
+                    <li>CGPA: 9.2 / 10</li>
                   </ul>
-                  <div class="flex flex-wrap gap-sm">
-                    <span class="tag">Salesforce</span>
-                    <span class="tag">Configuration</span>
-                    <span class="tag">Apex Basics</span>
-                    <span class="tag">Flow Builder</span>
-                  </div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Projects Section -->
-      <section id="projects" class="section-spacing-lg section-alt-bg">
+      <section id="projects" class="section-spacing-lg">
         <div class="container">
-          <div class="section-header">
-            <span class="section-number">03</span>
-            <h2 class="section-title">Featured Work</h2>
-            <p class="section-subtitle">Selected projects showcasing technical expertise and problem-solving</p>
-            <div class="section-divider"></div>
-          </div>
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Featured Work</h2>
+              <span class="section-number">05</span>
+            </div>
 
           <div class="grid-cards-2">
-            <!-- Credstream - Featured -->
+            <!-- ContinuumWeave.AI - Featured -->
             <div class="project-card card card-featured" data-tilt data-tilt-max="5">
               <span class="project-category">Featured Project</span>
-              <h3 class="project-title">Credstream</h3>
+              <div class="project-header">
+                <h3 class="project-title">ContinuumWeave.AI</h3>
+                <span class="project-year">2025</span>
+              </div>
+              <div class="project-award">
+                <i class="fas fa-award"></i>
+                <span>Best Execution &amp; Long-Term Vision &mdash; Tryzens Global AI Hackathon 2025</span>
+              </div>
               <p class="project-description">
-                Edge-based watermarking solution for OTT platforms with integrated credential tracking and piracy prevention. Embeds unique watermarks in video content at the edge device level for real-time processing with zero visible quality impact.
+                An AI platform that detects stalled conversations and tasks across email and chat, then generates contextual follow-up nudges &mdash; for the work items that silently drop between owners.
+              </p>
+              <p class="project-description">
+                The backend runs on Supabase (PostgreSQL) with n8n orchestration and Claude API integration, including LLM output parsing for multi-task extraction and truncated JSON recovery, HMAC-SHA256 secured webhooks with idempotency logging, and Microsoft Graph OAuth token management for Outlook.
               </p>
               <div class="flex flex-wrap gap-sm mb-md">
-                <span class="tag-primary tag">Python</span>
-                <span class="tag-primary tag">Flutter</span>
-                <span class="tag-primary tag">Flask</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/SpaceCodr/Credstream" target="_blank" class="btn-secondary btn-sm">
-                  <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="https://docs.google.com/document/d/14MJjuZJEyXE1Sc8dwHosaT6aDSgxutPl-ju8fuGJ-Ss/edit?usp=sharing" target="_blank" class="btn-primary btn-sm">
-                  <i class="fas fa-play"></i> Watch Demo
-                </a>
+                <span class="tag-primary tag">Next.js 14</span>
+                <span class="tag-primary tag">React</span>
+                <span class="tag-primary tag">Supabase</span>
+                <span class="tag-primary tag">n8n</span>
+                <span class="tag-primary tag">Claude API</span>
               </div>
             </div>
 
-            <!-- Portfolio Website -->
+            <!-- Credstream -->
             <div class="project-card card" data-tilt data-tilt-max="5">
-              <h3 class="project-title">Portfolio Website</h3>
+              <div class="project-header">
+                <h3 class="project-title">Credstream</h3>
+                <span class="project-year">2023</span>
+              </div>
               <p class="project-description">
-                Modern portfolio featuring bold typography, smooth animations, and a sophisticated design system. Hosted on GitHub Pages.
+                Edge-based forensic watermarking for OTT platforms, with integrated credential tracking to trace and deter piracy on streaming content. Watermarks are embedded at the edge device for real-time processing with no visible impact on quality.
               </p>
               <div class="flex flex-wrap gap-sm mb-md">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Flutter</span>
               </div>
               <div class="project-links">
-                <a href="https://github.com/SpaceCodr/spacecodr.github.io" target="_blank" class="btn-ghost">
+                <a href="https://github.com/SpaceCodr/Credstream" target="_blank" class="btn-ghost">
                   <i class="fab fa-github"></i> View Code
-                </a>
-                <a href="https://spacecodr.github.io/" target="_blank" class="btn-ghost">
-                  <i class="fas fa-external-link-alt"></i> Visit Site
                 </a>
               </div>
             </div>
 
             <!-- Trail -->
             <div class="project-card card" data-tilt data-tilt-max="5">
-              <h3 class="project-title">Trail</h3>
+              <div class="project-header">
+                <h3 class="project-title">Trail</h3>
+                <span class="project-year">2022</span>
+              </div>
               <p class="project-description">
-                Mobile application for time management with customizable Pomodoro timer, task organizer, time tracker, and detailed reporting for productivity insights.
+                A time management app combining a customisable Pomodoro timer, task organiser and time tracker with local persistence, built for people who want productivity insight without an account or a cloud round-trip.
               </p>
               <div class="flex flex-wrap gap-sm mb-md">
                 <span class="tag">Flutter</span>
@@ -351,9 +368,12 @@
 
             <!-- Mingle -->
             <div class="project-card card" data-tilt data-tilt-max="5">
-              <h3 class="project-title">Mingle</h3>
+              <div class="project-header">
+                <h3 class="project-title">Mingle</h3>
+                <span class="project-year">2022</span>
+              </div>
               <p class="project-description">
-                Collaboration platform that allows users to post and accept projects of interest, making team formation and project collaboration easier for developers and creators.
+                A collaboration platform for posting and accepting projects, making team formation easier between developers and creators looking for people to build with.
               </p>
               <div class="flex flex-wrap gap-sm mb-md">
                 <span class="tag">JavaFX</span>
@@ -365,51 +385,190 @@
                 </a>
               </div>
             </div>
+
+            <!-- Portfolio Website -->
+            <div class="project-card card" data-tilt data-tilt-max="5">
+              <div class="project-header">
+                <h3 class="project-title">Portfolio Website</h3>
+                <span class="project-year">2026</span>
+              </div>
+              <p class="project-description">
+                This site. A hand-written static portfolio with a token-driven design system, arch motifs and scroll choreography &mdash; no framework, no build step, served from GitHub Pages.
+              </p>
+              <div class="flex flex-wrap gap-sm mb-md">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SpaceCodr/spacecodr.github.io" target="_blank" class="btn-ghost">
+                  <i class="fab fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        
           </div>
         </div>
       </section>
 
-      <!-- Certifications Section -->
-      <section id="certifications" class="section-spacing-lg">
+      <!-- Skills Section -->
+      <section id="skills" class="section-spacing-lg">
         <div class="container">
-          <div class="section-header">
-            <span class="section-number">04</span>
-            <h2 class="section-title">Certifications</h2>
-            <div class="section-divider"></div>
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Skills</h2>
+              <span class="section-number">06</span>
+            </div>
+
+            <div class="skills-grid">
+              <div class="skill-group">
+                <h3 class="skill-group-title">Integration</h3>
+                <ul class="skill-chips">
+                  <li class="tag">MuleSoft Anypoint</li>
+                  <li class="tag">API-led Connectivity</li>
+                  <li class="tag">CloudHub</li>
+                  <li class="tag">DataWeave 2.0</li>
+                  <li class="tag">RAML</li>
+                  <li class="tag">Anypoint MQ</li>
+                  <li class="tag">MUnit</li>
+                  <li class="tag">REST APIs</li>
+                  <li class="tag">OAuth 2.0</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3 class="skill-group-title">Integration Patterns</h3>
+                <ul class="skill-chips">
+                  <li class="tag">Idempotency</li>
+                  <li class="tag">Retry &amp; Replay</li>
+                  <li class="tag">Reconciliation</li>
+                  <li class="tag">Object Store Caching</li>
+                  <li class="tag">Batch Migration</li>
+                  <li class="tag">Error Handling Frameworks</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3 class="skill-group-title">Salesforce</h3>
+                <ul class="skill-chips">
+                  <li class="tag">Apex</li>
+                  <li class="tag">Lightning Web Components</li>
+                  <li class="tag">Agentforce</li>
+                  <li class="tag">Data 360</li>
+                  <li class="tag">SOQL</li>
+                  <li class="tag">Flow Builder</li>
+                  <li class="tag">Experience Cloud</li>
+                  <li class="tag">Einstein Bots</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3 class="skill-group-title">AI &amp; Agents</h3>
+                <ul class="skill-chips">
+                  <li class="tag">Agent Design</li>
+                  <li class="tag">Copilot Actions</li>
+                  <li class="tag">LLM Orchestration</li>
+                  <li class="tag">Prompt Engineering</li>
+                  <li class="tag">n8n</li>
+                  <li class="tag">Claude API</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3 class="skill-group-title">Platforms &amp; Domain</h3>
+                <ul class="skill-chips">
+                  <li class="tag">NewStore OMS</li>
+                  <li class="tag">Magento</li>
+                  <li class="tag">AP21</li>
+                  <li class="tag">3PL</li>
+                  <li class="tag">Narvar</li>
+                  <li class="tag">Global-e</li>
+                  <li class="tag">Omneo</li>
+                </ul>
+              </div>
+              <div class="skill-group">
+                <h3 class="skill-group-title">Languages &amp; Tools</h3>
+                <ul class="skill-chips">
+                  <li class="tag">Python</li>
+                  <li class="tag">JavaScript</li>
+                  <li class="tag">SQL</li>
+                  <li class="tag">Git</li>
+                  <li class="tag">Postman</li>
+                  <li class="tag">Supabase</li>
+                </ul>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="grid-cards-4">
-            <div class="cert-card card" data-tilt data-tilt-max="5">
-              <div class="cert-icon-wrapper">
-                <img src="assets/cert-mulesoft-developer.png" alt="Salesforce MuleSoft Developer" class="cert-icon">
-              </div>
-              <h3 class="cert-title">Salesforce MuleSoft Developer</h3>
-              <p class="cert-date">Nov 2025</p>
+      <!-- Credentials Section -->
+      <section id="credentials" class="section-spacing-lg">
+        <div class="container">
+          <div class="section-panel">
+            <div class="section-header">
+              <h2 class="section-title">Credentials</h2>
+              <span class="section-number">07</span>
             </div>
 
-            <div class="cert-card card" data-tilt data-tilt-max="5">
-              <div class="cert-icon-wrapper">
-                <img src="assets/cert-pd1.png" alt="Salesforce Platform Developer I" class="cert-icon">
-              </div>
-              <h3 class="cert-title">Salesforce Platform Developer I</h3>
-              <p class="cert-date">Jun 2025</p>
-            </div>
+            <section class="cred-group">
+              <h3 class="cred-group-title">Certifications</h3>
+              <ul class="cred-grid">
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/cert-data360.png" alt="Data 360 Consultant" loading="lazy"></span>
+                  <h4 class="cred-card-name">Data 360 Consultant</h4>
+                  <p class="cred-card-meta">Sep 2026</p>
+                  <p class="cred-card-id">Credential ID 8105929</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/cert-mulesoft-developer.png" alt="MuleSoft Developer I" loading="lazy"></span>
+                  <h4 class="cred-card-name">MuleSoft Developer I</h4>
+                  <p class="cred-card-meta">Nov 2025</p>
+                  <p class="cred-card-id">Credential ID 7058811</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/cert-pd1.png" alt="Platform Developer I" loading="lazy"></span>
+                  <h4 class="cred-card-name">Platform Developer I</h4>
+                  <p class="cred-card-meta">Jun 2025</p>
+                  <p class="cred-card-id">Credential ID 6263644</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/SF-Certified_AI-Specialist.png" alt="Agentforce Specialist" loading="lazy"></span>
+                  <h4 class="cred-card-name">Agentforce Specialist</h4>
+                  <p class="cred-card-meta">Dec 2024</p>
+                  <p class="cred-card-id">Credential ID 5354909</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/SF-Certified_AI-Associate.png" alt="AI Associate" loading="lazy"></span>
+                  <h4 class="cred-card-name">AI Associate</h4>
+                  <p class="cred-card-meta">Nov 2024</p>
+                  <p class="cred-card-id">Credential ID 5265281</p>
+                </li>
+              </ul>
+            </section>
 
-            <div class="cert-card card" data-tilt data-tilt-max="5">
-              <div class="cert-icon-wrapper">
-                <img src="assets/SF-Certified_AI-Specialist.png" alt="Salesforce AI Specialist" class="cert-icon">
-              </div>
-              <h3 class="cert-title">Salesforce AI Specialist</h3>
-              <p class="cert-date">Dec 2024</p>
-            </div>
-
-            <div class="cert-card card" data-tilt data-tilt-max="5">
-              <div class="cert-icon-wrapper">
-                <img src="assets/SF-Certified_AI-Associate.png" alt="Salesforce AI Associate" class="cert-icon">
-              </div>
-              <h3 class="cert-title">Salesforce AI Associate</h3>
-              <p class="cert-date">Nov 2024</p>
-            </div>
+            <section class="cred-group">
+              <h3 class="cred-group-title">Recognition</h3>
+              <ul class="cred-grid">
+                <li class="cred-card card">
+                  <span class="cred-card-mark cred-card-mark-glyph" aria-hidden="true"><i class="fas fa-award"></i></span>
+                  <h4 class="cred-card-name">Spotlight Award</h4>
+                  <p class="cred-card-meta">Tryzens Global &middot; 2026</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/agentblazer-legend.png" alt="Agentblazer Legend" loading="lazy"></span>
+                  <h4 class="cred-card-name">Agentblazer Legend</h4>
+                  <p class="cred-card-meta">Trailhead &middot; 2025 &amp; 2026</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/four-star-ranger.png" alt="Four Star Ranger" loading="lazy"></span>
+                  <h4 class="cred-card-name">Four Star Ranger</h4>
+                  <p class="cred-card-meta">Salesforce Trailhead</p>
+                </li>
+                <li class="cred-card card">
+                  <span class="cred-card-mark"><img src="assets/agentforce-fde-ready-foundation.jpg" alt="Agentforce FDE Ready: Foundation" loading="lazy"></span>
+                  <h4 class="cred-card-name">Agentforce FDE Ready: Foundation</h4>
+                  <p class="cred-card-meta">Salesforce &middot; 2026</p>
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
       </section>
@@ -417,6 +576,8 @@
       <!-- Contact Section -->
       <section id="contact" class="section-spacing-lg">
         <div class="container">
+
+          <div class="section-panel">
           <div class="container-narrow text-center">
             <h2 class="h1 mb-md">Let's Build Something</h2>
             <p class="lead mb-xl">
@@ -436,6 +597,8 @@
               </a>
             </div>
           </div>
+        
+          </div>
         </div>
       </section>
 
@@ -445,7 +608,7 @@
     <footer class="footer">
       <div class="footer-content">
         <div>
-          <p class="footer-text">&copy; 2026 Umer Bin Shah. All Rights Reserved.</p>
+          <p class="footer-text">&copy; <span id="footer-year">2026</span> Umer Bin Shah. All Rights Reserved.</p>
           <p class="footer-tagline">Built with curiosity and care</p>
         </div>
       </div>

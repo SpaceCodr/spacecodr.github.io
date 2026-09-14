@@ -1,46 +1,42 @@
 /* ==========================================
    TYPOGRAPHY SYSTEM
-   Crimson Pro (Serif) + Inter (Sans) + JetBrains Mono (Mono)
+   Cormorant Garamond (display) + Space Grotesk (UI) + JetBrains Mono (code)
+
+   Compact scale: 14px body, 11px eyebrows, headings in the 20-38px range.
+   The display face carries the statement; everything else stays dense.
+
+   Fonts are loaded via <link rel="preconnect"> + <link rel="stylesheet">
+   in index.html's <head>. Do not re-add @import here - it serialises the
+   font request behind the stylesheet download.
    ========================================== */
-
-/* ==========================================
-   1. FONT IMPORTS
-   ========================================== */
-/* Crimson Pro - Display/Headings */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700;900&display=swap');
-
-/* Inter - UI/Body */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* JetBrains Mono - Code/Tech */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* ==========================================
    2. TYPE SCALE & VARIABLES
    ========================================== */
 :root {
   /* Font Families */
-  --font-serif: 'Crimson Pro', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
-  /* Display - Hero Headings (B-EGG inspired) */
-  --text-display-xl: clamp(4rem, 10vw, 8rem);      /* 64-128px */
-  --text-display-lg: clamp(3rem, 8vw, 6rem);       /* 48-96px */
-  --text-display-md: clamp(2.5rem, 6vw, 4.5rem);   /* 40-72px */
+  /* Display - Cormorant, the one place type is allowed to be large */
+  --text-display-xl: clamp(2.5rem, 6vw, 4.5rem);   /* 40-72px */
+  --text-display-lg: clamp(2rem, 5vw, 3.25rem);    /* 32-52px */
+  --text-display-md: clamp(1.75rem, 4vw, 2.5rem);  /* 28-40px */
 
   /* Headings */
-  --text-h1: clamp(2rem, 5vw, 3.5rem);             /* 32-56px */
-  --text-h2: clamp(1.75rem, 4vw, 2.5rem);          /* 28-40px */
-  --text-h3: clamp(1.5rem, 3vw, 2rem);             /* 24-32px */
-  --text-h4: clamp(1.25rem, 2.5vw, 1.75rem);       /* 20-28px */
-  --text-h5: clamp(1.125rem, 2vw, 1.5rem);         /* 18-24px */
+  --text-h1: clamp(1.75rem, 3.2vw, 2.375rem);      /* 28-38px */
+  --text-h2: clamp(1.5rem, 2.6vw, 1.875rem);       /* 24-30px */
+  --text-h3: 1.25rem;                               /* 20px */
+  --text-h4: 1.125rem;                              /* 18px */
+  --text-h5: 1rem;                                  /* 16px */
 
-  /* Body */
-  --text-body-lg: clamp(1.125rem, 2vw, 1.375rem);  /* 18-22px */
-  --text-body: clamp(1rem, 1.5vw, 1.125rem);       /* 16-18px */
-  --text-body-sm: clamp(0.875rem, 1.25vw, 1rem);   /* 14-16px */
-  --text-caption: clamp(0.75rem, 1vw, 0.875rem);   /* 12-14px */
+  /* Body - compact */
+  --text-body-lg: 1.0625rem;   /* 17px - lead */
+  --text-body: 0.875rem;       /* 14px */
+  --text-body-sm: 0.8125rem;   /* 13px */
+  --text-caption: 0.75rem;     /* 12px */
+  --text-eyebrow: 0.6875rem;   /* 11px - tracked labels */
 
   /* Font Weights */
   --weight-light: 300;
@@ -57,12 +53,16 @@
   --leading-relaxed: 1.7;
   --leading-loose: 1.9;
 
-  /* Letter Spacing */
+  /* Letter Spacing - by role, not by amount */
   --tracking-tighter: -0.04em;
   --tracking-tight: -0.02em;
   --tracking-normal: 0;
   --tracking-wide: 0.02em;
   --tracking-wider: 0.05em;
+
+  --tracking-heading: -0.02em;  /* display + headings */
+  --tracking-label: 0.14em;     /* eyebrows, section numbers */
+  --tracking-status: 0.08em;    /* stack lines, meta */
 }
 
 /* ==========================================
@@ -74,27 +74,27 @@
 .hero-display {
   font-family: var(--font-serif);
   font-size: var(--text-display-xl);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tighter);
+  font-weight: var(--weight-light);
+  line-height: 1.04;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
 }
 
 .display-lg {
   font-family: var(--font-serif);
   font-size: var(--text-display-lg);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tighter);
+  font-weight: var(--weight-light);
+  line-height: 1.06;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
 }
 
 .display-md {
   font-family: var(--font-serif);
   font-size: var(--text-display-md);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-light);
+  line-height: 1.14;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
 }
 
@@ -103,9 +103,9 @@ h1,
 .h1 {
   font-family: var(--font-serif);
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-regular);
+  line-height: 1.14;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
   margin-bottom: var(--space-md);
 }
@@ -114,10 +114,10 @@ h2,
 .h2 {
   font-family: var(--font-serif);
   font-size: var(--text-h2);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-regular);
   line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-graphite);
+  letter-spacing: var(--tracking-heading);
+  color: var(--color-charcoal);
   margin-bottom: var(--space-md);
 }
 
@@ -176,7 +176,7 @@ p,
   font-family: var(--font-sans);
   font-size: var(--text-body);
   font-weight: var(--weight-regular);
-  line-height: var(--leading-relaxed);
+  line-height: 1.75;
   letter-spacing: var(--tracking-normal);
   color: var(--color-slate);
 }
@@ -196,10 +196,11 @@ p {
 }
 
 .caption {
+  font-family: var(--font-sans);
   font-size: var(--text-caption);
   font-weight: var(--weight-medium);
   line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.14em;
   color: var(--color-ash);
   text-transform: uppercase;
 }
@@ -220,11 +221,11 @@ p {
 .quote {
   font-family: var(--font-serif);
   font-size: var(--text-display-md);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-tight);
+  font-weight: var(--weight-light);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Mono/Code text */
@@ -239,7 +240,7 @@ pre {
 
 code {
   background: var(--color-sand);
-  color: var(--color-indigo);
+  color: var(--brand-indigo);
   padding: 0.125rem 0.375rem;
   border-radius: var(--radius-sm);
   font-size: 0.875em;
@@ -373,7 +374,7 @@ ol li::marker {
 
 /* Letter Spacing */
 .tracking-tighter { letter-spacing: var(--tracking-tighter); }
-.tracking-tight { letter-spacing: var(--tracking-tight); }
+.tracking-tight { letter-spacing: var(--tracking-heading); }
 .tracking-normal { letter-spacing: var(--tracking-normal); }
 .tracking-wide { letter-spacing: var(--tracking-wide); }
 .tracking-wider { letter-spacing: var(--tracking-wider); }
@@ -388,12 +389,22 @@ ol li::marker {
 /* ==========================================
    9. GRADIENT TEXT
    ========================================== */
-.gradient-text {
-  background: var(--gradient-warm);
+.gradient-text,
+.text-iridescent {
+  background: var(--gradient-iridescent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
+}
+
+/* The emphasis sweep is a token, so it flips with the palette on both the
+   explicit-choice and OS-preference paths. */
+.text-iridescent {
+  background: var(--gradient-emphasis);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* ==========================================
@@ -402,12 +413,28 @@ ol li::marker {
 @media (max-width: 768px) {
   :root {
     /* Adjust scale slightly for mobile */
-    --text-display-xl: clamp(3rem, 10vw, 5rem);
-    --text-display-lg: clamp(2.5rem, 8vw, 4rem);
-    --text-display-md: clamp(2rem, 6vw, 3rem);
+    --text-display-xl: clamp(2.125rem, 8vw, 3rem);
+    --text-display-lg: clamp(1.875rem, 7vw, 2.5rem);
+    --text-display-md: clamp(1.625rem, 6vw, 2rem);
   }
 
   .loading-logo {
     font-size: 3rem;
   }
+}
+
+/* ==========================================
+   EYEBROW / LABEL
+   Wide-tracked uppercase sans. Replaces the old monospace treatment on
+   section numbers, tags, durations and category labels - mono read as
+   "dev tool", this reads as signage.
+   ========================================== */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-slate);
 }

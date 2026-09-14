@@ -9,7 +9,7 @@
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
       console.warn('GSAP or ScrollTrigger not loaded');
       // Ensure all elements are visible if GSAP doesn't load
-      document.querySelectorAll('.card, .timeline-item, .cert-card').forEach(el => {
+      document.querySelectorAll('.card, .exp-role, .hero-line, .hero-meta').forEach(el => {
         el.style.opacity = '1';
         el.style.visibility = 'visible';
       });
@@ -33,9 +33,9 @@
     heroTimeline
       .from('.hero-line', {
         opacity: 0,
-        y: 60,
+        y: 50,
         duration: 0.8,
-        stagger: 0.15,
+        stagger: 0.14,
         ease: 'power3.out'
       })
       .from('.hero-meta', {
@@ -43,13 +43,11 @@
         y: 20,
         duration: 0.6,
         ease: 'power2.out'
-      }, '-=0.4')
-      .from('.scroll-indicator', {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.3');
+      }, '-=0.4');
+
+    // The scroll cue is revealed by CSS, not GSAP. gsap.from() hides the
+    // element immediately on load, so any interruption to the timeline left
+    // it invisible for good - too fragile for a persistent affordance.
 
     // ==========================================
     // HERO GRADIENT PARALLAX
@@ -71,7 +69,6 @@
       const title = header.querySelector('.section-title');
       const number = header.querySelector('.section-number');
       const subtitle = header.querySelector('.section-subtitle');
-      const divider = header.querySelector('.section-divider');
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -111,21 +108,12 @@
           immediateRender: false
         }, '-=0.5');
       }
-
-      if (divider) {
-        tl.from(divider, {
-          scaleX: 0,
-          duration: 0.8,
-          ease: 'power3.inOut',
-          immediateRender: false
-        }, '-=0.4');
-      }
     });
 
     // ==========================================
     // CARDS STAGGER REVEAL
     // ==========================================
-    gsap.utils.toArray('.card:not(.cert-card)').forEach(card => {
+    gsap.utils.toArray('.card').forEach(card => {
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
@@ -142,19 +130,20 @@
     });
 
     // ==========================================
-    // TIMELINE ITEMS
+    // EXPERIENCE ROLE ROWS
     // ==========================================
-    gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+    // Role rows fade up in sequence as the panel enters.
+    gsap.utils.toArray('.exp-role').forEach((item, index) => {
       gsap.from(item, {
         scrollTrigger: {
-          trigger: item,
-          start: 'top 85%',
+          trigger: '.exp-roles',
+          start: 'top 80%',
           toggleActions: 'play none none none',
           once: true
         },
         opacity: 0,
-        x: -50,
-        duration: 0.8,
+        y: 20,
+        duration: 0.6,
         delay: index * 0.1,
         ease: 'power2.out',
         immediateRender: false
@@ -162,34 +151,9 @@
     });
 
     // ==========================================
-    // STATS COUNTER ANIMATION
-    // ==========================================
-    gsap.utils.toArray('.stat-number').forEach(stat => {
-      const value = stat.textContent;
-      const numericValue = parseInt(value);
-
-      if (!isNaN(numericValue)) {
-        gsap.from(stat, {
-          scrollTrigger: {
-            trigger: stat,
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-          },
-          innerText: 0,
-          duration: 2,
-          ease: 'power2.out',
-          snap: { innerText: 1 },
-          onUpdate: function() {
-            stat.innerText = Math.ceil(this.targets()[0].innerText) + (value.includes('+') ? '+' : '');
-          }
-        });
-      }
-    });
-
-    // ==========================================
     // TAGS STAGGER
     // ==========================================
-    gsap.utils.toArray('.card:not(.cert-card)').forEach(card => {
+    gsap.utils.toArray('.card').forEach(card => {
       const tags = card.querySelectorAll('.tag');
 
       if (tags.length > 0) {
@@ -246,49 +210,6 @@
         ease: 'none'
       });
     });
-
-    // ==========================================
-    // CERTIFICATION CARDS
-    // ==========================================
-    gsap.utils.toArray('.cert-card').forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-          once: true
-        },
-        opacity: 0,
-        y: 40,
-        rotation: -5,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: 'back.out(1.2)',
-        immediateRender: false
-      });
-    });
-
-    // ==========================================
-    // CURRENTLY SECTION CARDS
-    // ==========================================
-    const currentlyCards = document.querySelectorAll('#currently .card');
-
-    if (currentlyCards.length > 0) {
-      gsap.from(currentlyCards, {
-        scrollTrigger: {
-          trigger: '#currently',
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-          once: true
-        },
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        duration: 0.6,
-        ease: 'power2.out',
-        immediateRender: false
-      });
-    }
 
     // ==========================================
     // CONTACT SECTION

@@ -27,6 +27,26 @@
   resizeCanvas();
 
   // Particle class
+  // Read the drift colour from the design tokens rather than hard-coding it,
+  // so a palette change in main.css carries through to the canvas.
+  let particleRGB = '185, 163, 232';
+
+  function readParticleColor() {
+    const raw = getComputedStyle(document.documentElement)
+      .getPropertyValue('--brand-lavender')
+      .trim();
+    const hex = raw.replace('#', '');
+    if (hex.length !== 6) return;
+    const r = parseInt(hex.slice(0, 2), 16);
+    const g = parseInt(hex.slice(2, 4), 16);
+    const b = parseInt(hex.slice(4, 6), 16);
+    if ([r, g, b].some(Number.isNaN)) return;
+    particleRGB = `${r}, ${g}, ${b}`;
+  }
+
+  readParticleColor();
+  window.addEventListener('themechange', readParticleColor);
+
   class Particle {
     constructor() {
       this.x = Math.random() * canvas.width;
@@ -49,7 +69,7 @@
     }
 
     draw() {
-      ctx.fillStyle = `rgba(200, 93, 63, ${this.opacity})`;
+      ctx.fillStyle = `rgba(${particleRGB}, ${this.opacity})`;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();

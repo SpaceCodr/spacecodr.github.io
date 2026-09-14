@@ -67,36 +67,10 @@ section {
   overflow: hidden;
 }
 
-.section-alt-bg {
-  background: var(--color-sand);
-}
-
-/* Section padding */
+/* Section padding. The panels supply the grouping, so the gap between them
+   only has to separate, not group - hence the tight value. */
 .section-spacing-lg {
-  padding: var(--space-5xl) 0;
-}
-
-.section-spacing-md {
-  padding: var(--space-4xl) 0;
-}
-
-.section-spacing-sm {
-  padding: var(--space-3xl) 0;
-}
-
-/* Full height sections */
-.section-full-height {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-tall {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: var(--space-lg) 0;
 }
 
 .section-half {
@@ -362,50 +336,44 @@ section {
 
   /* Reduce section spacing on mobile */
   .section-spacing-lg {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-md) 0;
   }
 
-  .section-spacing-md {
-    padding: var(--space-2xl) 0;
-  }
-
-  .section-spacing-sm {
-    padding: var(--space-xl) 0;
-  }
-
-  /* Adjust full height sections for mobile */
-  .section-full-height,
-  .section-tall {
-    min-height: auto;
-    padding: var(--space-3xl) 0;
-  }
 }
 
 /* ==========================================
    10. SECTION HEADER LAYOUT
    ========================================== */
+/* Header bar inside the panel: title left, section number as a quiet right
+   marker. Replaces the centred number-over-title stack. */
 .section-header {
-  text-align: center;
-  margin-bottom: var(--space-4xl);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  text-align: left;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-stone);
 }
 
 .section-number {
-  font-family: var(--font-mono);
-  font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-wider);
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.22em;
   color: var(--color-ash);
   text-transform: uppercase;
-  display: block;
-  margin-bottom: var(--space-xs);
 }
 
 .section-title {
   font-family: var(--font-serif);
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-light);
+  letter-spacing: var(--tracking-heading);
   color: var(--color-charcoal);
-  margin-bottom: var(--space-sm);
+  margin: 0;
 }
 
 .section-subtitle {
@@ -415,16 +383,63 @@ section {
   margin: 0 auto var(--space-md);
 }
 
-.section-divider {
-  width: 60px;
-  height: 4px;
-  background: var(--gradient-warm);
+/* Each section body sits on a recessed panel, one step below the cards it
+   holds: page ground -> panel -> card -> card hover. */
+.section-panel {
+  max-width: 980px;
   margin: 0 auto;
-  border-radius: 2px;
+  padding: var(--space-xl);
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-stone);
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 640px) {
+  .section-panel {
+    padding: var(--space-md);
+  }
 }
 
 @media (max-width: 768px) {
   .section-header {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-md);
   }
+}
+
+/* ==========================================
+   PHILOSOPHY / VALUE CARDS
+   Icon sits inside an arch frame, replacing the emoji the markup used to
+   carry as inline styles.
+   ========================================== */
+.value-card {
+  text-align: left;
+}
+
+.value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--color-stone-strong);
+  border-radius: var(--radius-md);
+  color: var(--brand-indigo);
+  font-size: 1rem;
+}
+
+/* ==========================================
+   SHARED LAYOUT HELPERS
+   (previously inline styles in index.html)
+   ========================================== */
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.cta-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
 }
