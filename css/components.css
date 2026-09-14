@@ -913,12 +913,17 @@
    ========================================== */
 .hero-section {
   position: relative;
+  /* svh accounts for mobile browser chrome; vh is the fallback */
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
-  align-items: center;
+  /* Anchored to the top, NOT centred. With centring, only
+     (paddingTop - paddingBottom) affects position, so the block drifts under
+     the fixed navbar as soon as the content grows. flex-start makes the top
+     offset exact and independent of content height. */
+  align-items: flex-start;
   justify-content: center;
-  padding-top: 62px;
-  overflow: hidden;
+  padding: calc(62px + var(--space-2xl)) 0 var(--space-3xl);
 }
 
 .hero-gradient {
@@ -934,22 +939,26 @@
 .hero-arch {
   position: absolute;
   left: 50%;
-  top: 52%;
-  transform: translate(-50%, -50%);
-  width: min(620px, 76vw);
-  aspect-ratio: 3 / 4;
+  top: calc(62px + var(--space-lg));
+  transform: translateX(-50%);
+  width: min(560px, 66vw);
+  aspect-ratio: 1 / 1.08;
+  max-height: calc(100% - 62px);
   border: 1px solid var(--color-stone);
   border-radius: var(--radius-arch);
+  border-bottom: none;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.9;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
 }
 
 /* A tighter arch inside it, carrying the iridescence as a bloom, not a line */
 .hero-arch::before {
   content: '';
   position: absolute;
-  inset: 7%;
+  inset: 6% 6% 12%;
   border-radius: var(--radius-arch);
   background: var(--gradient-iridescent);
   opacity: 0.10;
@@ -980,7 +989,7 @@
   display: block;
   width: 56px;
   height: 1px;
-  margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-md);
   background: var(--gradient-iridescent);
 }
 
@@ -1027,7 +1036,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-xs);
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-xl);
   color: var(--color-slate);
   text-decoration: none;
   font-size: var(--text-eyebrow);
@@ -1035,6 +1044,21 @@
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   transition: var(--transition-smooth);
+  /* 'backwards' applies the from-state during the delay and then releases to
+     the natural value. If the animation never runs, the element is simply
+     visible - the failure mode is shown, not hidden. */
+  animation: scroll-cue-in 0.6s ease 1.2s backwards;
+}
+
+@keyframes scroll-cue-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .scroll-indicator i {

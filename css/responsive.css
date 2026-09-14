@@ -12,9 +12,6 @@
     max-width: 1536px;
   }
 
-  .section-spacing-lg {
-    padding: 14rem 0;
-  }
 }
 
 /* ==========================================
@@ -37,10 +34,6 @@
     padding: 0 var(--space-md);
   }
 
-  .section-spacing-lg {
-    padding: var(--space-4xl) 0;
-  }
-
 }
 
 /* ==========================================
@@ -52,15 +45,6 @@
   .container-grid {
     max-width: 768px;
     padding: 0 var(--space-md);
-  }
-
-  /* Section spacing */
-  .section-spacing-lg {
-    padding: var(--space-3xl) 0;
-  }
-
-  .section-spacing-md {
-    padding: var(--space-2xl) 0;
   }
 
   /* Grid adjustments */
@@ -126,21 +110,7 @@
   /* Hero mobile - 100vh is unreliable with mobile browser chrome, and the
      headline no longer needs a full screen at the compact display scale. */
   .hero-section {
-    min-height: 86vh;
-    padding-top: 56px;
-  }
-
-  /* Section adjustments */
-  .section-spacing-lg {
-    padding: var(--space-3xl) 0;
-  }
-
-  .section-spacing-md {
-    padding: var(--space-2xl) 0;
-  }
-
-  .section-spacing-sm {
-    padding: var(--space-xl) 0;
+    padding: calc(56px + var(--space-xl)) 0 var(--space-2xl);
   }
 
   .section-header {
@@ -148,12 +118,6 @@
   }
 
   /* Full height sections */
-  .section-full-height,
-  .section-tall {
-    min-height: auto;
-    padding: var(--space-3xl) 0;
-  }
-
   /* Cards mobile */
   .card {
     padding: var(--space-md);
@@ -214,15 +178,7 @@
 
   /* Tighter spacing */
   .section-header {
-    margin-bottom: var(--space-xl);
-  }
-
-  .section-spacing-lg {
-    padding: var(--space-2xl) 0;
-  }
-
-  .section-spacing-md {
-    padding: var(--space-xl) 0;
+    margin-bottom: var(--space-md);
   }
 
   /* Buttons full width */
@@ -250,20 +206,12 @@
     font-size: 1rem;
   }
 
-  .section-spacing-lg {
-    padding: var(--space-xl) 0;
-  }
 }
 
 /* ==========================================
    9. LANDSCAPE MOBILE
    ========================================== */
 @media (max-height: 600px) and (orientation: landscape) {
-  .section-full-height {
-    min-height: auto;
-    padding: var(--space-xl) 0;
-  }
-
   .loading-screen {
     padding: var(--space-lg);
   }

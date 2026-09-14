@@ -67,32 +67,10 @@ section {
   overflow: hidden;
 }
 
-/* Section padding */
+/* Section padding. The panels supply the grouping, so the gap between them
+   only has to separate, not group - hence the tight value. */
 .section-spacing-lg {
-  padding: var(--space-5xl) 0;
-}
-
-.section-spacing-md {
-  padding: var(--space-4xl) 0;
-}
-
-.section-spacing-sm {
-  padding: var(--space-3xl) 0;
-}
-
-/* Full height sections */
-.section-full-height {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-tall {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: var(--space-lg) 0;
 }
 
 .section-half {
@@ -358,23 +336,9 @@ section {
 
   /* Reduce section spacing on mobile */
   .section-spacing-lg {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-md) 0;
   }
 
-  .section-spacing-md {
-    padding: var(--space-2xl) 0;
-  }
-
-  .section-spacing-sm {
-    padding: var(--space-xl) 0;
-  }
-
-  /* Adjust full height sections for mobile */
-  .section-full-height,
-  .section-tall {
-    min-height: auto;
-    padding: var(--space-3xl) 0;
-  }
 }
 
 /* ==========================================

@@ -9,7 +9,7 @@
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
       console.warn('GSAP or ScrollTrigger not loaded');
       // Ensure all elements are visible if GSAP doesn't load
-      document.querySelectorAll('.card, .exp-role').forEach(el => {
+      document.querySelectorAll('.card, .exp-role, .hero-line, .hero-meta').forEach(el => {
         el.style.opacity = '1';
         el.style.visibility = 'visible';
       });
@@ -43,13 +43,11 @@
         y: 20,
         duration: 0.6,
         ease: 'power2.out'
-      }, '-=0.4')
-      .from('.scroll-indicator', {
-        opacity: 0,
-        y: 16,
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=0.3');
+      }, '-=0.4');
+
+    // The scroll cue is revealed by CSS, not GSAP. gsap.from() hides the
+    // element immediately on load, so any interruption to the timeline left
+    // it invisible for good - too fragile for a persistent affordance.
 
     // ==========================================
     // HERO GRADIENT PARALLAX

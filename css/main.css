@@ -92,7 +92,7 @@
   --radius-full: 999px;
 
   /* Window motif - derived from the aircraft-window "R" */
-  --radius-arch: 50% 50% var(--radius-lg) var(--radius-lg) / 34% 34% var(--radius-lg) var(--radius-lg);
+  --radius-arch: 50% 50% 0 0 / 56% 56% 0 0;
   --radius-window: 42% 42% 18% 18% / 30% 30% 12% 12%;
 }
 
@@ -359,21 +359,7 @@ body {
   text-align: center;
 }
 
-.section-spacing {
-  padding: var(--space-5xl) 0;
-}
-
-@media (max-width: 992px) {
-  .section-spacing {
-    padding: var(--space-4xl) 0;
-  }
-}
-
 @media (max-width: 768px) {
-  .section-spacing {
-    padding: var(--space-3xl) 0;
-  }
-
   .container,
   .container-narrow {
     padding: 0 var(--space-md);
