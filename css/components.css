@@ -858,6 +858,8 @@
   font-size: var(--text-eyebrow);
   letter-spacing: var(--tracking-status);
   color: var(--color-ash);
+  /* Patchworks IDs are 24-char hex strings with no break points */
+  overflow-wrap: anywhere;
 }
 
 .cred-group-title {
